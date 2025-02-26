@@ -1,26 +1,14 @@
-# Dependency directories
-node_modules
-package-lock.json
-bower_components
+# Hugo output and cache folders
+/public/
+/resources/
+/node_modules/
 
-# Logs
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Build output
-dist
-build
-
-# Hugo-related outputs
-public
-resources
+# Hugo server generated files
+hugo_stats.json
 .hugo_build.lock
 
-# Environment variables
-.env
-
-# Mac
+# System-specific files
 .DS_Store
+Thumbs.db
+.idea/
+*.swp
