@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" class="h-full">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ .Title }}</title>
+        <link href="/css/tailwind.css" rel="stylesheet" />
+    </head>
+    <body class="flex flex-col min-h-screen bg-gray-200 text-black">
+        {{ partial "header.html" . }}
+        <main class="flex-grow p-6">{{ block "main" . }}{{ end }}</main>
+        {{ partial "footer.html" . }}
+        <script>
+          // JavaScript to toggle the dropdown menu visibility
+          function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+          }
+        </script>
+    </body>
+</html>

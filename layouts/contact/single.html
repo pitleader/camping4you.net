@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="max-w-4xl mx-auto p-6">
+    <h1 class="flex justify-center text-3xl font-bold">{{ .Title }}</h1>
+    <div class="flex justify-center prose mb-6">{{ .Content }}</div>
+    <div class="flex justify-center">
+        <ul class="list-disc list-inside">
+            <li>
+                Call or Text:
+                <a href="tel:{{ .Params.phone }}"
+                    ><span class="font-bold">{{ .Params.phone }}</span></a
+                >
+            </li>
+            <li>
+                Email:
+                <a href="mailto:{{ .Params.email }}"
+                    ><span class="font-bold">{{ .Params.email }}</span></a
+                >
+            </li>
+        </ul>
+    </div>
+</section>
+{{ end }}

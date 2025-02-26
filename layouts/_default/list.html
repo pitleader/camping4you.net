@@ -1,0 +1,28 @@
+{{ define "main" }}
+<pre class="p-8">
+Debug | GLOBAL list.html
+Kind: {{ .Kind }}
+Type: {{ .Type }}
+Layout: {{ .Layout }}
+</pre>
+<section class="max-w-4xl mx-auto">
+    <header class="mb-6">
+        <h1 class="text-4xl font-bold text-gray-300">{{ .Title }}</h1>
+    </header>
+    <ul class="space-y-4">
+        {{ range .Pages }}
+        <li class="p-4 shadow">
+            <h2 class="text-2xl font-semibold">
+                <a href="{{ .Permalink }}" class="text-blue-600 hover:underline"
+                    >{{ .Title }}</a
+                >
+            </h2>
+            <p class="text-gray-600 text-sm">
+                Published on {{ .Date.Format "January 2, 2006" }}
+            </p>
+            <p class="text-gray-700">{{ .Summary }}</p>
+        </li>
+        {{ end }}
+    </ul>
+</section>
+{{ end }}

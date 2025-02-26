@@ -1,0 +1,18 @@
+{{ define "main" }}
+<pre class="p-8">
+Debug | GLOBAL single.html
+Kind: {{ .Kind }}
+Type: {{ .Type }}
+Layout: {{ .Layout }}
+Section: {{ .Section }}
+</pre>
+<article class="max-w-3xl mx-auto shadow p-6">
+    <header class="mb-4">
+        <h1 class="text-3xl font-bold text-gray-300">{{ .Title }}</h1>
+        <p class="text-sm text-gray-600">
+            Published on {{ .Date.Format "January 2, 2006" }}
+        </p>
+    </header>
+    <section class="prose">{{ .Content }}</section>
+</article>
+{{ end }}
