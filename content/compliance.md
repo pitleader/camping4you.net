@@ -1,16 +1,10 @@
 ---
 title: "Terms & Privacy Policy"
 og_description: "Legal Stuff"
-date: 2024-01-01
+date: 2026-03-02
 type: "compliance"
 draft: false
 ---
-
-date: 2026-03-02
-draft: false
----
-
-# Terms & Privacy Policy
 
 Effective Date: March 2, 2026
 
