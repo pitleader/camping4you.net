@@ -8,6 +8,7 @@
             <a href="/" class="{{ if .IsHome }}underline font-bold{{ else }}hover:underline{{ end }}">Home</a>
             <a href="/rates/" class="{{ if eq .RelPermalink "/rates/" }}underline font-bold{{ else }}hover:underline{{ end }}">Rates</a>
             <a href="/rules/" class="{{ if eq .RelPermalink "/rules/" }}underline font-bold{{ else }}hover:underline{{ end }}">Rules</a>
+            <a href="/compliance/" class="{{ if eq .RelPermalink "/compliance/" }}underline font-bold{{ else }}hover:underline{{ end }}">Terms & Privacy Policy</a>
             <a href="/contact/" class="{{ if eq .RelPermalink "/contact/" }}underline font-bold{{ else }}hover:underline{{ end }}">Contact</a>
         </nav>
 
@@ -31,11 +32,12 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-gray-500-700">
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-700">
         <nav class="flex flex-col space-y-2 p-4">
             <a href="/" class="{{ if .IsHome }}underline font-bold{{ else }}hover:underline{{ end }}">Home</a>
             <a href="/rates" class="{{ if eq .RelPermalink "/rates/" }}underline font-bold{{ else }}hover:underline{{ end }}">Rates</a>
             <a href="/rules" class="{{ if eq .RelPermalink "/rules/" }}underline font-bold{{ else }}hover:underline{{ end }}">Rules</a>
+            <a href="/compliance" class="{{ if eq .RelPermalink "/compliance/" }}underline font-bold{{ else }}hover:underline{{ end }}">Terms & Privacy Policy</a>
             <a href="/contact" class="{{ if eq .RelPermalink "/contact/" }}underline font-bold{{ else }}hover:underline{{ end }}">Contact</a>
         </nav>
     </div>

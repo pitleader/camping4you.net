@@ -1,11 +1,11 @@
 {
   "devDependencies": {
-    "concurrently": "^9.1.0",
-    "tailwindcss": "^3.4.17"
+    "@tailwindcss/cli": "^4.2.1",
+    "@tailwindcss/typography": "^0.5.19",
+    "tailwindcss": "^4.2.1"
   },
   "scripts": {
-    "dev": "concurrently \"hugo serve\" \"npx tailwindcss -i ./assets/css/tailwind.css -o ./static/css/tailwind.css --watch\"",
-    "build:css": "npx tailwindcss -i ./assets/css/tailwind.css -o ./static/css/tailwind.css --minify",
-    "build:site": "npm run build:css && hugo"
+    "dev": "hugo server",
+    "build": "hugo --minify"
   }
 }
