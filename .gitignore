@@ -12,3 +12,5 @@ hugo_stats.json
 Thumbs.db
 .idea/
 *.swp
+
+.claude
