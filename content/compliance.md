@@ -101,7 +101,7 @@ We may update these Terms & Privacy Policy at any time. Updates will be posted o
 
 If you have questions regarding this policy, contact us:
 
-**Leisure Oaks Park**
-Email: [info@camping4you.net](mailto:info@camping4you.net)
-Phone: (309) 697-4871
+**Leisure Oaks Park**\
+Email: [info@camping4you.net](mailto:info@camping4you.net)\
+Phone: (309) 697-4871\
 Address: 5805 S Lafayette Ave, Bartonville, IL 61607

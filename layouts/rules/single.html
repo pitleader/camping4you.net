@@ -4,25 +4,25 @@
 {{ if or .Params.check_in .Params.check_out .Params.quiet_hours .Params.speed_limit }}
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 text-center">
     {{ with .Params.check_in }}
-    <div class="bg-gray-50 rounded p-3">
+    <div class="border border-gray-200 rounded p-3">
         <p class="text-sm text-gray-500">Check-In</p>
         <p class="font-semibold">{{ . }}</p>
     </div>
     {{ end }}
     {{ with .Params.check_out }}
-    <div class="bg-gray-50 rounded p-3">
+    <div class="border border-gray-200 rounded p-3">
         <p class="text-sm text-gray-500">Check-Out</p>
         <p class="font-semibold">{{ . }}</p>
     </div>
     {{ end }}
     {{ with .Params.quiet_hours }}
-    <div class="bg-gray-50 rounded p-3">
+    <div class="border border-gray-200 rounded p-3">
         <p class="text-sm text-gray-500">Quiet Hours</p>
         <p class="font-semibold">{{ . }}</p>
     </div>
     {{ end }}
     {{ with .Params.speed_limit }}
-    <div class="bg-gray-50 rounded p-3">
+    <div class="border border-gray-200 rounded p-3">
         <p class="text-sm text-gray-500">Speed Limit</p>
         <p class="font-semibold">{{ . }}</p>
     </div>
