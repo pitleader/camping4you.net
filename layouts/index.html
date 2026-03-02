@@ -1,4 +1,12 @@
 {{ define "main" }}
-<h1 class="text-center text-3xl font-bold mb-6">Welcome to Leisure Oaks Park</h1>
-<img class="mx-auto" src="images/logo.png" alt="Logo" />
+<h1 class="text-center text-3xl font-bold mb-2">{{ .Title }}</h1>
+{{ with .Params.subtitle }}
+<p class="text-center text-gray-500 mb-6">{{ . }}</p>
+{{ end }}
+{{ with .Params.logo }}
+<img class="mx-auto" src="{{ . }}" alt="Leisure Oaks Park Logo" />
+{{ end }}
+{{ with .Content }}
+<div class="prose max-w-none mt-6">{{ . }}</div>
+{{ end }}
 {{ end }}
