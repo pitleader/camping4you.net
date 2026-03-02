@@ -1,4 +1,49 @@
 {{ define "main" }}
 <h1 class="text-center text-3xl font-bold mb-6">{{ .Title }}</h1>
-<div class="prose max-w-none">{{ .Content }}</div>
+
+{{ with .Params.rates }}
+<h2 class="text-xl font-semibold mb-3">Site Rates</h2>
+<table class="w-full mb-8 text-left">
+    <thead>
+        <tr class="border-b-2 border-gray-300">
+            <th class="py-2">Type</th>
+            <th class="py-2">Price</th>
+            <th class="py-2 hidden md:table-cell">Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ range . }}
+        <tr class="border-b border-gray-200">
+            <td class="py-2 font-medium">{{ .name }}</td>
+            <td class="py-2">{{ .price }}</td>
+            <td class="py-2 text-gray-500 hidden md:table-cell">{{ with .note }}{{ . }}{{ end }}</td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>
+{{ end }}
+
+{{ with .Params.extras }}
+<h2 class="text-xl font-semibold mb-3">Extras & Add-Ons</h2>
+<table class="w-full mb-8 text-left">
+    <thead>
+        <tr class="border-b-2 border-gray-300">
+            <th class="py-2">Item</th>
+            <th class="py-2">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ range . }}
+        <tr class="border-b border-gray-200">
+            <td class="py-2 font-medium">{{ .name }}</td>
+            <td class="py-2">{{ .price }}</td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>
+{{ end }}
+
+{{ with .Content }}
+<div class="prose max-w-none">{{ . }}</div>
+{{ end }}
 {{ end }}
