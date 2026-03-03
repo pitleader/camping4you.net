@@ -1,7 +1,0 @@
-{{ define "main" }}
-<h1 class="text-center text-3xl font-bold mb-2">{{ .Title }}</h1>
-{{ with .Params.effective_date }}
-<p class="text-center text-sm text-gray-500 mb-6">Effective Date: {{ . }}</p>
-{{ end }}
-<div class="prose max-w-none">{{ .Content }}</div>
-{{ end }}
