@@ -64,7 +64,8 @@ scope until a new dated decision.
 ### M1 — SvelteKit + SEO rebuild to parity on Cloudflare — 2026-06-27
 **Done:** src/routes/+page.svelte, src/lib/content/site.ts, src/lib/seo/structured-data.ts, .github/workflows/ci.yml
 Replaced the Hugo site with a SvelteKit 5 + TS (strict) + Tailwind v4 app on
-`adapter-cloudflare`, live at https://camping4you.pages.dev. All 7 pages
+`adapter-cloudflare`, live on the production domain **https://camping4you.net**
+(apex + www, valid SSL) and https://camping4you.pages.dev. All 7 pages
 (home, rates, rules, contact, privacy, terms, sms-sample) render from a single
 typed `site.ts` (copy-truth: unconfirmed prices show "Call for rates"); full
 SEO stack (Campground JSON-LD `@graph`, sitemap/llms/robots); outdoorsy OKLCH

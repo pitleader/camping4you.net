@@ -2,7 +2,8 @@
 
 **Last updated:** 2026-06-27
 **Active focus:** **M1 SHIPPED** (branch `m1-sveltekit-rebuild`) — the SvelteKit 5
-rebuild is live at https://camping4you.pages.dev. All 7 pages render from a
+rebuild is live on the production domain **https://camping4you.net** (apex + www,
+valid SSL) and https://camping4you.pages.dev. All 7 pages render from a
 typed `site.ts`, full SEO stack, outdoorsy design system, CI green. No
 milestone is actively building: M2 (Telnyx SMS) and M3 (OIDC control panel)
 are committed but held in ROADMAP `## Backlog` on external gates. Next moves
