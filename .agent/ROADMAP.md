@@ -34,10 +34,7 @@ scope until a new dated decision.
 - [ ] **B7** OG share image — design a 1200×630 `og.png` and wire `site.ogImage`; until then `<Seo>` omits og:image (no broken card). — source: session 2026-06-27 (M1.T4/T5)
       revisit-when: brand assets / hero photography available
       stratum: committed
-- [ ] **B8** Enable analytics — turn on Cloudflare Web Analytics for the Pages project (auto-injects the cookieless beacon; no token in repo), OR set `site.analytics.cfBeaconToken`. CSP already allow-lists `static.cloudflareinsights.com`. Closes the probe's analytics gap. — source: session 2026-06-27 (probe)
-      revisit-when: owner enables Web Analytics in the Cloudflare dashboard
-      stratum: committed
-      held: creds
+- [x] **B8** Enable analytics — Cloudflare Web Analytics enabled; beacon token wired into `site.analytics.cfBeaconToken`, rendered cookieless from `+layout.svelte` (edge auto-injection was flaky on the Pages custom domain, so the manual token is the reliable path). CSP already allow-lists the beacon. — source: session 2026-06-27 (probe) — done: src/lib/content/site.ts, src/routes/+layout.svelte
 - [ ] **B9** Search-engine verification — add Google Search Console + Bing Webmaster tokens to `site.ts` `verification` (`<Seo>` emits them when set); confirm GSC/Bing ownership. IndexNow already pings on deploy. — source: session 2026-06-27 (probe)
       revisit-when: owner provides GSC + Bing verification tokens
       stratum: committed

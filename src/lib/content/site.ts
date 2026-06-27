@@ -82,7 +82,7 @@ export const site = {
 	 * beacon token below and it renders from the app. CSP already allow-lists
 	 * `static.cloudflareinsights.com`. Empty → not rendered.
 	 */
-	analytics: { cfBeaconToken: '' },
+	analytics: { cfBeaconToken: '6e2215c17c89425ca0e3ae7ee775748d' },
 
 	/** OG/share image (1200×630). null until the asset exists — no broken card. */
 	ogImage: null as string | null,
