@@ -52,6 +52,14 @@ tier-C needs-decision).
 
 ---
 
+## 4b. SEO/security probe (2026-06-27)
+
+Sentinel probe of live camping4you.net: **13/14 pass**. Closed CSP + HSTS +
+all security headers via root `_headers` (B6); IndexNow key + deploy ping live.
+Only **analytics** fails — needs the owner to enable Cloudflare Web Analytics
+(B8, dashboard). GSC/Bing verification tokens pending (B9). Re-verify with
+`npm run probe https://camping4you.net` in the sentinel repo.
+
 ## 5. Next session
 
 M1 is shipped and live. To resume: (1) merge `m1-sveltekit-rebuild` → `main`
