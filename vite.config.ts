@@ -19,18 +19,7 @@ export default defineConfig({
 
 			// Inline page CSS into <head> instead of a render-blocking <link> —
 			// removes the critical-path request before first paint.
-			inlineStyleThreshold: 60000,
-
-			prerender: {
-				// The home page already links to these pages; M1.T3 builds them.
-				// Tolerate ONLY these known-pending routes — any other broken
-				// link still fails the build.
-				handleHttpError: ({ path, message }) => {
-					const pending = ['/rates', '/rules', '/contact', '/privacy', '/terms', '/sms-sample'];
-					if (pending.includes(path)) return;
-					throw new Error(message);
-				}
-			}
+			inlineStyleThreshold: 60000
 		})
 	],
 	test: {

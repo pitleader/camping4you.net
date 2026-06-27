@@ -4,10 +4,10 @@
 	import { site } from '$lib/content/site';
 
 	const links = [
-		{ href: '#stay', label: 'The Park' },
-		{ href: '#rates', label: 'Rates' },
-		{ href: '#rules', label: 'Rules' },
-		{ href: '#contact', label: 'Contact' }
+		{ href: '/', label: 'The Park' },
+		{ href: '/rates', label: 'Rates' },
+		{ href: '/rules', label: 'Rules' },
+		{ href: '/contact', label: 'Contact' }
 	];
 </script>
 
@@ -15,7 +15,7 @@
 	class="sticky top-0 z-50 border-b border-line bg-canvas/80 backdrop-blur supports-[backdrop-filter]:bg-canvas/65"
 >
 	<nav class="mx-auto flex max-w-6xl items-center gap-4 px-5 py-3.5" aria-label="Primary">
-		<a href="#top" class="flex items-center gap-2.5 font-display text-lg font-semibold text-ink">
+		<a href="/" class="flex items-center gap-2.5 font-display text-lg font-semibold text-ink">
 			<span class="grid size-9 place-items-center rounded-full bg-brand text-on-brand">
 				<Trees size={20} />
 			</span>

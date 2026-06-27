@@ -1,10 +1,9 @@
 /**
- * Single source of truth for every editable park fact (PROJECT-SCOPE: copy-truth
- * — "never invent park facts"). Pages, the SEO graph, and the footer all read
- * from here; nothing about the park is hardcoded in a template. The M3 control
- * panel edits this content.
+ * Single source of truth for every editable park fact. Pages, the SEO graph,
+ * and the footer all read from here; nothing about the park is hardcoded in a
+ * template. The operator control panel will edit this content.
  *
- * COPY-TRUTH CONTRACT: a fact the owner has not yet confirmed is `null`, never a
+ * TRUTH CONTRACT: a fact the owner has not yet confirmed is `null`, never a
  * plausible guess. `null` renders as an honest fallback ("Call for rates"), so a
  * placeholder is structurally impossible to mistake for a real value.
  */
@@ -148,7 +147,7 @@ export const site = {
 		] as RuleSection[]
 	},
 
-	/** Service-only A2P 10DLC program (PROJECT-SCOPE glossary: never marketing). */
+	/** Service-only A2P 10DLC program — transactional messages, never marketing. */
 	sms: {
 		effectiveDate: 'March 2, 2026',
 		intro:

@@ -132,3 +132,17 @@
 		border-radius: 3px;
 	}
 }
+
+/* Themed long-form prose (legal pages) — maps the typography plugin's tokens
+ * onto our semantic colors so body copy reads correctly in light and dark. */
+.legal-prose {
+	--tw-prose-body: var(--color-muted);
+	--tw-prose-headings: var(--color-ink);
+	--tw-prose-bold: var(--color-ink);
+	--tw-prose-links: var(--color-brand);
+	--tw-prose-bullets: var(--color-brand);
+	--tw-prose-counters: var(--color-muted);
+	--tw-prose-hr: var(--color-line);
+	--tw-prose-quotes: var(--color-ink);
+	--tw-prose-quote-borders: var(--color-line-strong);
+}

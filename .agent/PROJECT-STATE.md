@@ -30,7 +30,7 @@ module) and T7 (CI). All three backend research reports are in `.agent/REPORTS/`
 ## 2. Active milestone
 
 **Milestone:** M1 — SvelteKit + SEO rebuild to parity on Cloudflare → see `.agent/ROADMAP.md`.
-Done: T1 (scaffold), T2 (content module), T7 (CI). Ready: T3 (pages), T4 (SEO). Blocked: T5, T6.
+Done: T1, T2, T3, T7. Ready: T4 (SEO). Blocked: T5 (design polish), T6 (deploy).
 **Active blockers:** none for M1 code. (Owner data gates content-fill B1; Telnyx
 A2P registration gates M2; content-store choice gates M3.)
 
