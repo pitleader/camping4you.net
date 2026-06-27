@@ -81,7 +81,9 @@
 	--color-line-strong: color-mix(in oklab, var(--color-bark-900) 20%, transparent);
 	--color-brand: var(--color-pine-600);
 	--color-brand-strong: var(--color-pine-700);
-	--color-accent: var(--color-amber-600);
+	/* Deepened from amber-600 so accent text/icons clear AA (4.5:1) on the light
+	 * canvas; the night theme keeps the brighter amber-500. */
+	--color-accent: oklch(0.54 0.13 48);
 	--color-on-brand: oklch(0.99 0.01 95);
 }
 

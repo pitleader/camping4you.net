@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Phone, Trees } from '@lucide/svelte';
+	import { Phone, Trees, Menu, X } from '@lucide/svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
 	import { site } from '$lib/content/site';
 
@@ -9,6 +9,8 @@
 		{ href: '/rules', label: 'Rules' },
 		{ href: '/contact', label: 'Contact' }
 	];
+
+	let open = $state(false);
 </script>
 
 <header
@@ -39,6 +41,43 @@
 				{site.phone.display}
 			</a>
 			<ThemeToggle />
+			<button
+				type="button"
+				onclick={() => (open = !open)}
+				class="grid size-9 place-items-center rounded-full border border-line text-muted transition-colors hover:text-ink md:hidden"
+				aria-label={open ? 'Close menu' : 'Open menu'}
+				aria-expanded={open}
+				aria-controls="mobile-menu"
+			>
+				{#if open}<X size={18} />{:else}<Menu size={18} />{/if}
+			</button>
 		</div>
 	</nav>
+
+	{#if open}
+		<div id="mobile-menu" class="border-t border-line bg-canvas md:hidden">
+			<ul class="mx-auto flex max-w-6xl flex-col px-3 py-2">
+				{#each links as link (link.href)}
+					<li>
+						<a
+							href={link.href}
+							onclick={() => (open = false)}
+							class="block rounded-xl px-3 py-2.5 font-medium text-muted transition-colors hover:bg-surface hover:text-ink"
+						>
+							{link.label}
+						</a>
+					</li>
+				{/each}
+				<li class="px-1 pt-2 pb-1 sm:hidden">
+					<a
+						href="tel:{site.phone.href}"
+						class="flex items-center justify-center gap-2 rounded-full bg-brand px-4 py-2.5 text-sm font-semibold text-on-brand"
+					>
+						<Phone size={16} />
+						{site.phone.display}
+					</a>
+				</li>
+			</ul>
+		</div>
+	{/if}
 </header>

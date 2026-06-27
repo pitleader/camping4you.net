@@ -18,8 +18,8 @@ scope until a new dated decision.
       done-when: each existing Hugo page has a working SvelteKit route rendering from `site.ts`, content-parity verified against the current site. ✓ all 7 routes prerender + serve 200, titles correct, facts sourced from `site.ts`; copy-truth verified — no `$XX` placeholder reaches output. Shared `PageHeader` + `LegalContact` components; nav now points at real routes.
 - [x] **T4** SEO stack — typed schema.org JSON-LD `@graph` in `$lib/seo`, a `<Seo>` meta helper (title/description/canonical/OG/Twitter/robots), and `sitemap.xml` + `llms.txt` + `robots.txt` routes. — depends: [T2] — done: src/lib/seo/structured-data.ts, src/lib/components/Seo.svelte
       done-when: `/` JSON-LD validates clean in Google Rich Results, sitemap/llms.txt/robots serve, and every emitted value traces to `site.ts`. ✓ Campground/LodgingBusiness `@graph` (Organization + Campground + WebSite) parses clean; `<Seo>` on all 7 pages (canonical/OG/Twitter/geo, geo+image omitted while unconfirmed — copy-truth); sitemap.xml (7 urls), llms.txt, robots.txt prerender + trace to `site.ts`. Live Rich-Results check after T6 deploy.
-- [ ] **T5** Design + styling pass — Tailwind v4 token architecture (OKLCH palette, role-based semantic tokens), responsive 320px→desktop, reduced-motion contract, AA contrast on every token pair. — depends: [T3]
-      done-when: pages render correctly from 320px to desktop, all token pairs ≥ 4.5:1, `prefers-reduced-motion` honored.
+- [x] **T5** Design + styling pass — Tailwind v4 token architecture (OKLCH palette, role-based semantic tokens), responsive 320px→desktop, reduced-motion contract, AA contrast on every token pair. — depends: [T3] — done: src/routes/layout.css, src/lib/components/Nav.svelte
+      done-when: pages render correctly from 320px to desktop, all token pairs ≥ 4.5:1, `prefers-reduced-motion` honored. ✓ added a mobile nav menu (was a real <md gap); reduced-motion in base layer; WCAG audit of all 15 semantic pairs passes (text ≥4.5, UI/large ≥3) — light accent deepened to oklch(0.54 0.13 48) to clear AA on canvas.
 - [ ] **T6** Deploy to Cloudflare Pages — adapter/`wrangler` config, successful build, preview URL, deploy steps documented in README. — depends: [T4, T5]
       done-when: a Cloudflare Pages preview URL serves the full site; the deploy command is documented.
 - [x] **T7** CI green — `tsc --noEmit` + lint + a minimal test in a GitHub Actions workflow. — depends: [T1] — done: .github/workflows/ci.yml
@@ -42,6 +42,13 @@ scope until a new dated decision.
       revisit-when: research reports land in `.agent/REPORTS/`
       stratum: committed
       held: decision
+- [ ] **B6** CSP hardening — add hash-mode Content-Security-Policy for the prerendered pages (the inline pre-paint theme script needs its hash allow-listed) plus a sync test so the hash can't drift. Deferred from T5 to avoid a fragile hash without the guard. — source: session 2026-06-27 (M1.T5)
+      revisit-when: security hardening pass, before public launch
+      stratum: committed
+      held: design
+- [ ] **B7** OG share image — design a 1200×630 `og.png` and wire `site.ogImage`; until then `<Seo>` omits og:image (no broken card). — source: session 2026-06-27 (M1.T4/T5)
+      revisit-when: brand assets / hero photography available
+      stratum: committed
 
 ### M2 — Telnyx service-SMS + STOP/HELP webhooks (A2P 10DLC)
 **Goal:** The app sends service-only SMS (confirmations, reminders, notices) via Telnyx and handles inbound STOP/HELP webhooks compliantly.
