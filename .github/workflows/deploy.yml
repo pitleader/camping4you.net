@@ -38,3 +38,27 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      # Tell IndexNow (Bing, Yandex, etc.) to re-crawl. The key is published as a
+      # public static file at /<key>.txt — IndexNow keys are public by design.
+      # Non-fatal: indexing must never gate a deploy.
+      - name: Ping IndexNow
+        continue-on-error: true
+        run: |
+          KEY=e89cd128bd5a92f820be5da89bb1d1c9
+          curl -sS -X POST 'https://api.indexnow.org/indexnow' \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "host": "camping4you.net",
+              "key": "'"$KEY"'",
+              "keyLocation": "https://camping4you.net/'"$KEY"'.txt",
+              "urlList": [
+                "https://camping4you.net/",
+                "https://camping4you.net/rates",
+                "https://camping4you.net/rules",
+                "https://camping4you.net/contact",
+                "https://camping4you.net/privacy",
+                "https://camping4you.net/terms",
+                "https://camping4you.net/sms-sample"
+              ]
+            }'

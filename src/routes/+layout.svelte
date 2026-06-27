@@ -2,9 +2,25 @@
 	import './layout.css';
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import { site } from '$lib/content/site';
 
 	let { children } = $props();
+
+	// Cloudflare Web Analytics beacon (cookieless), rendered only when a token is
+	// set. Emitted via {@html} so Svelte doesn't parse the inline <script>.
+	const beaconTag = site.analytics.cfBeaconToken
+		? `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='${JSON.stringify(
+				{ token: site.analytics.cfBeaconToken }
+			)}'></` + `script>`
+		: '';
 </script>
+
+<svelte:head>
+	{#if beaconTag}
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -- code-controlled beacon tag, no user input -->
+		{@html beaconTag}
+	{/if}
+</svelte:head>
 
 <a
 	href="#main"

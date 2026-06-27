@@ -75,6 +75,15 @@ export const site = {
 	/** Search-engine ownership verification tokens (emitted only when set). */
 	verification: { google: '', bing: '' },
 
+	/**
+	 * Cloudflare Web Analytics (cookieless). Easiest path is to enable Web
+	 * Analytics on the Pages project in the dashboard — Cloudflare then injects
+	 * the beacon at the edge and no token is needed here. Alternatively paste the
+	 * beacon token below and it renders from the app. CSP already allow-lists
+	 * `static.cloudflareinsights.com`. Empty → not rendered.
+	 */
+	analytics: { cfBeaconToken: '' },
+
 	/** OG/share image (1200×630). null until the asset exists — no broken card. */
 	ogImage: null as string | null,
 

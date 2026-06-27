@@ -29,13 +29,23 @@ scope until a new dated decision.
       revisit-when: research reports land in `.agent/REPORTS/`
       stratum: committed
       held: decision
-- [ ] **B6** CSP hardening — add hash-mode Content-Security-Policy for the prerendered pages (the inline pre-paint theme script needs its hash allow-listed) plus a sync test so the hash can't drift. Deferred from T5 to avoid a fragile hash without the guard. — source: session 2026-06-27 (M1.T5)
-      revisit-when: security hardening pass, before public launch
-      stratum: committed
-      held: design
+- [x] **B6** Security headers + CSP — root `_headers` now sets HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, COOP, and a baseline CSP header on `/*` (Cloudflare Pages serves them on every route, static included). — source: session 2026-06-27 (SEO/security probe) — done: _headers
+      Residual (→ B10): `script-src` uses `'unsafe-inline'` for the prerendered hydration bootstrap (a real header CSP can't carry per-page hashes); fine for a forms-less brochure site, tighten when forms/auth land.
 - [ ] **B7** OG share image — design a 1200×630 `og.png` and wire `site.ogImage`; until then `<Seo>` omits og:image (no broken card). — source: session 2026-06-27 (M1.T4/T5)
       revisit-when: brand assets / hero photography available
       stratum: committed
+- [ ] **B8** Enable analytics — turn on Cloudflare Web Analytics for the Pages project (auto-injects the cookieless beacon; no token in repo), OR set `site.analytics.cfBeaconToken`. CSP already allow-lists `static.cloudflareinsights.com`. Closes the probe's analytics gap. — source: session 2026-06-27 (probe)
+      revisit-when: owner enables Web Analytics in the Cloudflare dashboard
+      stratum: committed
+      held: creds
+- [ ] **B9** Search-engine verification — add Google Search Console + Bing Webmaster tokens to `site.ts` `verification` (`<Seo>` emits them when set); confirm GSC/Bing ownership. IndexNow already pings on deploy. — source: session 2026-06-27 (probe)
+      revisit-when: owner provides GSC + Bing verification tokens
+      stratum: committed
+      held: creds
+- [ ] **B10** Tighten CSP — replace `script-src 'unsafe-inline'` with hashed/nonce script-src once forms/auth (M2/M3) raise the XSS surface; likely needs the form routes on SSR (not prerender) so a per-request nonce is available. — source: session 2026-06-27 (B6 residual)
+      revisit-when: M2 or M3 adds a form or authenticated route
+      stratum: committed
+      held: design
 
 ### M2 — Telnyx service-SMS + STOP/HELP webhooks (A2P 10DLC)
 **Goal:** The app sends service-only SMS (confirmations, reminders, notices) via Telnyx and handles inbound STOP/HELP webhooks compliantly.
