@@ -1,13 +1,14 @@
 # Project State
 
 **Last updated:** 2026-06-27
-**Active focus:** Rebuilding the Hugo site as a SvelteKit 5 app on Cloudflare
-(M1), on branch `m1-sveltekit-rebuild`. **M1.T1 done** — app scaffolded
-(SvelteKit 5 + TS strict + Tailwind v4 + adapter-cloudflare), Hugo archived,
-build + dev + svelte-check + lint all green, and a polished outdoorsy design
-system + designed home page shipped. Ready next: T2 (typed `site.ts` content
-module) and T7 (CI). All three backend research reports are in `.agent/REPORTS/`
-(Telnyx A2P, Cloudflare content-store → git-backed, OIDC → Cloudflare Access).
+**Active focus:** **M1 SHIPPED** (branch `m1-sveltekit-rebuild`) — the SvelteKit 5
+rebuild is live at https://camping4you.pages.dev. All 7 pages render from a
+typed `site.ts`, full SEO stack, outdoorsy design system, CI green. No
+milestone is actively building: M2 (Telnyx SMS) and M3 (OIDC control panel)
+are committed but held in ROADMAP `## Backlog` on external gates. Next moves
+are owner-/decision-gated, not code-blocked. Three backend research reports
+sit in `.agent/REPORTS/` (Telnyx A2P, content-store → git-backed, OIDC →
+Cloudflare Access) ready to fold into M2/M3 DECISIONs (B2).
 
 ---
 
@@ -29,10 +30,11 @@ module) and T7 (CI). All three backend research reports are in `.agent/REPORTS/`
 
 ## 2. Active milestone
 
-**Milestone:** M1 — SvelteKit + SEO rebuild to parity on Cloudflare → see `.agent/ROADMAP.md`.
-Done: T1–T5, T7. Ready: T6 (deploy to Cloudflare Pages) — last M1 task.
-**Active blockers:** none for M1 code. (Owner data gates content-fill B1; Telnyx
-A2P registration gates M2; content-store choice gates M3.)
+**Milestone:** none active — **M1 shipped 2026-06-27** (see ROADMAP `## Shipped`).
+Next: M2 (Telnyx SMS) / M3 (OIDC control panel), both in `## Backlog`, gated.
+**Active blockers / gates:** Telnyx A2P brand+campaign registration (M2);
+content-store decision from research (M3); owner data for content-fill (B1);
+merge `m1-sveltekit-rebuild` → `main` (human/PR).
 
 ---
 
@@ -51,10 +53,12 @@ tier-C needs-decision).
 
 ## 5. Next session
 
-Phase 3 branch chosen: **M1 → code** (clear path, mirrors peoriait.com), with
-**research running in parallel** on the M2/M3 gaps (Telnyx A2P 10DLC, Cloudflare
-content-store, multi-IdP OIDC) landing in `.agent/REPORTS/`. Start M1.T1
-(scaffold) when ready to build; fold research into DECISIONs (B2) before M2/M3.
+M1 is shipped and live. To resume: (1) merge `m1-sveltekit-rebuild` → `main`
+(human/PR) so CI + the Pages deploy workflow run on the default branch;
+(2) when ready for M2/M3, fold the three `.agent/REPORTS/` research findings
+into ratified DECISIONs (B2) — recommended picks: content-store **git-backed**,
+auth **Cloudflare Access**, SMS **Telnyx Low-Volume-Mixed**; (3) owner inputs
+unblock B1 content-fill and Telnyx registration.
 
 ---
 

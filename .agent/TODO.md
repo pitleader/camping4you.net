@@ -13,8 +13,6 @@
 
 ## Now
 
-- [ ] Deploy to Cloudflare Pages — adapter/`wrangler` config, successful build, preview URL, deploy steps documented in README. — source: ROADMAP M1.T6
-
 ## Next
 
 ## Parked
