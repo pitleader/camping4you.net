@@ -2,8 +2,15 @@
 	import { FileText } from '@lucide/svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
 	import LegalContact from '$lib/components/LegalContact.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 	import { site } from '$lib/content/site';
 </script>
+
+<Seo
+	title="Terms & Conditions | {site.name}"
+	description="The terms for using Leisure Oaks Park's website and services, including our service-only SMS terms."
+	path="/terms"
+/>
 
 <PageHeader
 	eyebrow="Effective {site.legal.effectiveDate}"

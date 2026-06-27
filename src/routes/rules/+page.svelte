@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { ScrollText, LogIn, LogOut, Moon, Gauge, Check } from '@lucide/svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 	import { site } from '$lib/content/site';
 
 	const quick = [
@@ -10,6 +11,12 @@
 		{ icon: Gauge, label: 'Speed limit', value: site.rules.speedLimit }
 	];
 </script>
+
+<Seo
+	title="Campground Rules | {site.name}"
+	description="Check-in and check-out times, quiet hours, and park rules for Leisure Oaks Park in Bartonville, IL — keeping the campground quiet, clean, and safe."
+	path="/rules"
+/>
 
 <PageHeader
 	eyebrow="Park rules"

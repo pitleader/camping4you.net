@@ -2,8 +2,15 @@
 	import { MessageSquareText } from '@lucide/svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
 	import LegalContact from '$lib/components/LegalContact.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 	import { site } from '$lib/content/site';
 </script>
+
+<Seo
+	title="Sample SMS Messages | {site.name}"
+	description="Examples of the service-only text messages Leisure Oaks Park sends after you opt in — confirmations, reminders, and park notices. Reply STOP anytime."
+	path="/sms-sample"
+/>
 
 <PageHeader
 	eyebrow="Effective {site.sms.effectiveDate}"

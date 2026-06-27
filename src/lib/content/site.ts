@@ -72,6 +72,12 @@ export const site = {
 	/** No public social profiles confirmed yet. */
 	social: [] as string[],
 
+	/** Search-engine ownership verification tokens (emitted only when set). */
+	verification: { google: '', bing: '' },
+
+	/** OG/share image (1200×630). null until the asset exists — no broken card. */
+	ogImage: null as string | null,
+
 	rates: {
 		// Prices are null until the owner confirms them (copy-truth). The note is
 		// the stable, true part; the number is what we will not invent.

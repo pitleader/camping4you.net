@@ -13,7 +13,6 @@
 
 ## Now
 
-- [ ] SEO stack — typed schema.org JSON-LD `@graph` in `$lib/seo`, a `<Seo>` meta helper (title/description/canonical/OG/Twitter/robots), and `sitemap.xml` + `llms.txt` + `robots.txt` routes. — source: ROADMAP M1.T4
 - [ ] Design + styling pass — Tailwind v4 token architecture (OKLCH palette, role-based semantic tokens), responsive 320px→desktop, reduced-motion contract, AA contrast on every token pair. — source: ROADMAP M1.T5
 
 ## Next

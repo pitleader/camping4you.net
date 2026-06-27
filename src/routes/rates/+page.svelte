@@ -1,10 +1,17 @@
 <script lang="ts">
 	import { Tag, Phone, Tent } from '@lucide/svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 	import { site, formatPrice } from '$lib/content/site';
 
 	const { categories, extras } = site.rates;
 </script>
+
+<Seo
+	title="Campground Rates | {site.name}"
+	description="Nightly, weekly, monthly, and seasonal RV sites with full hookups at Leisure Oaks Park in Bartonville, IL. Call the office for current rates."
+	path="/rates"
+/>
 
 <PageHeader
 	eyebrow="Rates"

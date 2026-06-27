@@ -2,8 +2,15 @@
 	import { Shield } from '@lucide/svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
 	import LegalContact from '$lib/components/LegalContact.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 	import { site } from '$lib/content/site';
 </script>
+
+<Seo
+	title="Privacy Policy | {site.name}"
+	description="How Leisure Oaks Park collects, uses, and protects your information, including our service-only SMS communications."
+	path="/privacy"
+/>
 
 <PageHeader
 	eyebrow="Effective {site.legal.effectiveDate}"

@@ -1,12 +1,20 @@
 <script lang="ts">
 	import { Phone, Mail, MapPin, Clock, Navigation } from '@lucide/svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 	import { site, formattedAddress } from '$lib/content/site';
 
 	const directions = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
 		formattedAddress()
 	)}`;
 </script>
+
+<Seo
+	title="Contact | {site.name}"
+	description="Reach Leisure Oaks Park by phone or email, or stop by. {formattedAddress()}. Office hours {site
+		.hours.display}."
+	path="/contact"
+/>
 
 <PageHeader
 	eyebrow="Contact"

@@ -15,6 +15,8 @@
 		Mail
 	} from '@lucide/svelte';
 	import { site, formatPrice } from '$lib/content/site';
+	import Seo from '$lib/components/Seo.svelte';
+	import { graph, jsonLdScript } from '$lib/seo/structured-data';
 
 	// Marketing copy — presentational, lives with the page.
 	const features = [
@@ -49,6 +51,13 @@
 		{ icon: Gauge, label: 'Speed limit', value: site.rules.speedLimit }
 	];
 </script>
+
+<Seo
+	title="Leisure Oaks Park — RV Park & Campground in Bartonville, IL"
+	description="A quiet, shaded RV park and campground in Bartonville, Illinois. Full hookups, nightly to seasonal stays, and a friendly office. Call to reserve."
+	path="/"
+	jsonLd={jsonLdScript(graph())}
+/>
 
 <!-- ===== Hero ===================================================== -->
 <section id="stay" class="relative isolate overflow-hidden">
