@@ -12,8 +12,8 @@ scope until a new dated decision.
 
 - [x] **T1** Scaffold SvelteKit 5 + TypeScript (`strict`) + Tailwind v4 + `adapter-cloudflare`; archive the Hugo site (content/layouts/hugo.toml). — done: vite.config.ts, src/routes/+page.svelte
       done-when: `npm run build` produces a Cloudflare build, `vite dev` serves a home route, and the Hugo-specific files are removed or moved to `archive/`. ✓ build → `.svelte-kit/cloudflare/`; dev serves `/` (200); Hugo in `archive/hugo/`; svelte-check 0/0 + lint green. Also shipped a polished design system (pine/amber OKLCH tokens, Fraunces+Inter, dark/light) and a designed home page (hero, features, rates/rules teasers, contact CTA) — copy-truth: no invented prices ("Call for rates").
-- [ ] **T2** Typed content module (`$lib/content/site.ts`) — single source for all park facts (name, NAP, hours, rates, rules sections, compliance/effective dates). Placeholders stay visibly placeholder (copy-truth). — depends: [T1]
-      done-when: every page's data reads from `site.ts`; no park fact is hardcoded in a template; `$XX.XX`-style placeholders are clearly marked, not invented.
+- [x] **T2** Typed content module (`$lib/content/site.ts`) — single source for all park facts (name, NAP, hours, rates, rules sections, compliance/effective dates). Placeholders stay visibly placeholder (copy-truth). — depends: [T1] — done: src/lib/content/site.ts, src/lib/content/site.test.ts
+      done-when: every page's data reads from `site.ts`; no park fact is hardcoded in a template; `$XX.XX`-style placeholders are clearly marked, not invented. ✓ home/Nav/Footer source from `site.ts`; rate prices are `null` → `formatPrice()` renders "Call for rates"; a unit test guards against invented placeholders + marketing wording.
 - [ ] **T3** Rebuild all current pages from the content module: home, rates, contact, rules, privacy, terms, sample-SMS. — depends: [T2]
       done-when: each existing Hugo page has a working SvelteKit route rendering from `site.ts`, content-parity verified against the current site.
 - [ ] **T4** SEO stack — typed schema.org JSON-LD `@graph` in `$lib/seo`, a `<Seo>` meta helper (title/description/canonical/OG/Twitter/robots), and `sitemap.xml` + `llms.txt` + `robots.txt` routes. — depends: [T2]
@@ -22,8 +22,8 @@ scope until a new dated decision.
       done-when: pages render correctly from 320px to desktop, all token pairs ≥ 4.5:1, `prefers-reduced-motion` honored.
 - [ ] **T6** Deploy to Cloudflare Pages — adapter/`wrangler` config, successful build, preview URL, deploy steps documented in README. — depends: [T4, T5]
       done-when: a Cloudflare Pages preview URL serves the full site; the deploy command is documented.
-- [ ] **T7** CI green — `tsc --noEmit` + lint + a minimal test in a GitHub Actions workflow. — depends: [T1]
-      done-when: CI runs on push and passes (typecheck + lint + test).
+- [x] **T7** CI green — `tsc --noEmit` + lint + a minimal test in a GitHub Actions workflow. — depends: [T1] — done: .github/workflows/ci.yml
+      done-when: CI runs on push and passes (typecheck + lint + test). ✓ `.github/workflows/ci.yml` runs check + lint + test + build on push/PR; all four pass locally (the GitHub run fires on first push).
 
 ## Loose
 

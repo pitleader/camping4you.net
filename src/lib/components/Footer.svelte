@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { MapPin, Phone, Mail, Trees } from '@lucide/svelte';
+	import { site } from '$lib/content/site';
 
 	const year = 2026;
 </script>
@@ -23,19 +24,21 @@
 			<ul class="mt-4 space-y-3 text-sm text-muted">
 				<li class="flex gap-2.5">
 					<MapPin size={16} class="mt-0.5 shrink-0 text-brand" />
-					<span>5805 S Lafayette Ave<br />Bartonville, IL 61607</span>
+					<span
+						>{site.address.street}<br />{site.address.city}, {site.address.regionCode}
+						{site.address.postalCode}</span
+					>
 				</li>
 				<li>
-					<a href="tel:+13096974871" class="flex gap-2.5 transition-colors hover:text-ink">
-						<Phone size={16} class="shrink-0 text-brand" /> (309) 697-4871
+					<a href="tel:{site.phone.href}" class="flex gap-2.5 transition-colors hover:text-ink">
+						<Phone size={16} class="shrink-0 text-brand" />
+						{site.phone.display}
 					</a>
 				</li>
 				<li>
-					<a
-						href="mailto:info@camping4you.net"
-						class="flex gap-2.5 transition-colors hover:text-ink"
-					>
-						<Mail size={16} class="shrink-0 text-brand" /> info@camping4you.net
+					<a href="mailto:{site.email}" class="flex gap-2.5 transition-colors hover:text-ink">
+						<Mail size={16} class="shrink-0 text-brand" />
+						{site.email}
 					</a>
 				</li>
 			</ul>

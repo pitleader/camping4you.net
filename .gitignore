@@ -30,6 +30,6 @@ Thumbs.db
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-# dotagent: derived MCP index — markdown is canonical (D-0027)
+# dotagent: derived MCP index (markdown is the canonical source)
 .agent/dotagent.db
 .agent/dotagent.db-*

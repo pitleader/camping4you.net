@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Phone, Trees } from '@lucide/svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
+	import { site } from '$lib/content/site';
 
 	const links = [
 		{ href: '#stay', label: 'The Park' },
@@ -8,7 +9,6 @@
 		{ href: '#rules', label: 'Rules' },
 		{ href: '#contact', label: 'Contact' }
 	];
-	const phone = '(309) 697-4871';
 </script>
 
 <header
@@ -32,11 +32,11 @@
 
 		<div class="ml-auto flex items-center gap-2 md:ml-2">
 			<a
-				href="tel:+13096974871"
+				href="tel:{site.phone.href}"
 				class="hidden items-center gap-2 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-on-brand transition-colors hover:bg-brand-strong sm:inline-flex"
 			>
 				<Phone size={16} />
-				{phone}
+				{site.phone.display}
 			</a>
 			<ThemeToggle />
 		</div>
