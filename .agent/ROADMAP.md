@@ -10,8 +10,8 @@ scope until a new dated decision.
 ### M1 — SvelteKit + SEO rebuild to parity on Cloudflare
 **Admitted:** 2026-06-27 · **Goal:** Replace the Hugo site with a SvelteKit 5 app on Cloudflare that renders every current page from a single typed content module, with the full SEO stack, deployed to a preview URL.
 
-- [ ] **T1** Scaffold SvelteKit 5 + TypeScript (`strict`) + Tailwind v4 + `adapter-cloudflare`; archive the Hugo site (content/layouts/hugo.toml).
-      done-when: `npm run build` produces a Cloudflare build, `vite dev` serves a home route, and the Hugo-specific files are removed or moved to `archive/`.
+- [x] **T1** Scaffold SvelteKit 5 + TypeScript (`strict`) + Tailwind v4 + `adapter-cloudflare`; archive the Hugo site (content/layouts/hugo.toml). — done: vite.config.ts, src/routes/+page.svelte
+      done-when: `npm run build` produces a Cloudflare build, `vite dev` serves a home route, and the Hugo-specific files are removed or moved to `archive/`. ✓ build → `.svelte-kit/cloudflare/`; dev serves `/` (200); Hugo in `archive/hugo/`; svelte-check 0/0 + lint green. Also shipped a polished design system (pine/amber OKLCH tokens, Fraunces+Inter, dark/light) and a designed home page (hero, features, rates/rules teasers, contact CTA) — copy-truth: no invented prices ("Call for rates").
 - [ ] **T2** Typed content module (`$lib/content/site.ts`) — single source for all park facts (name, NAP, hours, rates, rules sections, compliance/effective dates). Placeholders stay visibly placeholder (copy-truth). — depends: [T1]
       done-when: every page's data reads from `site.ts`; no park fact is hardcoded in a template; `$XX.XX`-style placeholders are clearly marked, not invented.
 - [ ] **T3** Rebuild all current pages from the content module: home, rates, contact, rules, privacy, terms, sample-SMS. — depends: [T2]

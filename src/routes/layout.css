@@ -1,0 +1,134 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/fraunces';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+/* Dark by default; the light theme opts in via [data-theme='light']. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* ------------------------------------------------------------------ *
+ * Design tokens — Leisure Oaks Park (camping4you.net)
+ * A campground at golden hour: pine-green brand, campfire-amber accent,
+ * warm bark neutrals. Default theme is the night sky over the oaks;
+ * the light theme is a clear morning. Token NAMES are stable across
+ * themes — only the values flip.
+ * ------------------------------------------------------------------ */
+@theme {
+	--font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+	--font-display: 'Fraunces Variable', ui-serif, Georgia, 'Times New Roman', serif;
+
+	/* Pine — brand green ramp (perceptually even OKLCH) */
+	--color-pine-50: oklch(0.97 0.02 155);
+	--color-pine-100: oklch(0.93 0.04 154);
+	--color-pine-200: oklch(0.86 0.07 153);
+	--color-pine-300: oklch(0.77 0.1 152);
+	--color-pine-400: oklch(0.68 0.12 151);
+	--color-pine-500: oklch(0.58 0.12 150);
+	--color-pine-600: oklch(0.48 0.1 150);
+	--color-pine-700: oklch(0.39 0.084 151);
+	--color-pine-800: oklch(0.31 0.066 152);
+	--color-pine-900: oklch(0.24 0.05 154);
+	--color-pine-950: oklch(0.17 0.035 156);
+
+	/* Amber — campfire / golden-hour accent */
+	--color-amber-300: oklch(0.86 0.13 78);
+	--color-amber-400: oklch(0.81 0.15 70);
+	--color-amber-500: oklch(0.75 0.16 62); /* accent primary */
+	--color-amber-600: oklch(0.67 0.16 55);
+	--color-amber-700: oklch(0.57 0.14 50);
+
+	/* Bark — warm neutral ramp (the dark surfaces + warm greys) */
+	--color-bark-50: oklch(0.97 0.008 70);
+	--color-bark-100: oklch(0.93 0.01 68);
+	--color-bark-200: oklch(0.86 0.013 66);
+	--color-bark-300: oklch(0.74 0.015 64);
+	--color-bark-400: oklch(0.6 0.016 62);
+	--color-bark-500: oklch(0.48 0.016 60);
+	--color-bark-600: oklch(0.38 0.016 58);
+	--color-bark-700: oklch(0.29 0.016 56);
+	--color-bark-800: oklch(0.22 0.015 150);
+	--color-bark-900: oklch(0.17 0.014 152);
+	--color-bark-950: oklch(0.12 0.012 154);
+
+	/* Semantic role tokens — DEFAULT (night) values. Flip in the light
+	 * override below. These generate bg-canvas / text-ink / etc. */
+	--color-canvas: var(--color-bark-950);
+	--color-surface: var(--color-bark-900);
+	--color-surface-2: var(--color-bark-800);
+	--color-ink: oklch(0.96 0.01 80);
+	--color-muted: var(--color-bark-300);
+	--color-line: color-mix(in oklab, white 8%, transparent);
+	--color-line-strong: color-mix(in oklab, white 14%, transparent);
+	--color-brand: var(--color-pine-400);
+	--color-brand-strong: var(--color-pine-300);
+	--color-accent: var(--color-amber-500);
+	--color-on-brand: oklch(0.16 0.02 156);
+
+	/* Motion + shape */
+	--radius-card: 1rem;
+	--ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Light theme — a clear morning at the park. */
+:root[data-theme='light'] {
+	--color-canvas: oklch(0.98 0.012 95);
+	--color-surface: oklch(1 0 0);
+	--color-surface-2: oklch(0.96 0.012 90);
+	--color-ink: var(--color-bark-900);
+	--color-muted: var(--color-bark-500);
+	--color-line: color-mix(in oklab, var(--color-bark-900) 12%, transparent);
+	--color-line-strong: color-mix(in oklab, var(--color-bark-900) 20%, transparent);
+	--color-brand: var(--color-pine-600);
+	--color-brand-strong: var(--color-pine-700);
+	--color-accent: var(--color-amber-600);
+	--color-on-brand: oklch(0.99 0.01 95);
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		-webkit-text-size-adjust: 100%;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.001ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.001ms !important;
+		}
+	}
+
+	body {
+		background-color: var(--color-canvas);
+		color: var(--color-ink);
+		font-family: var(--font-sans);
+		font-synthesis-weight: none;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+	}
+
+	h1,
+	h2,
+	h3 {
+		font-family: var(--font-display);
+		font-optical-sizing: auto;
+		letter-spacing: -0.015em;
+	}
+
+	::selection {
+		background: color-mix(in oklab, var(--color-accent) 35%, transparent);
+		color: var(--color-ink);
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 2px;
+		border-radius: 3px;
+	}
+}

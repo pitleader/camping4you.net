@@ -1,16 +1,35 @@
-# Hugo output and cache folders
-/public/
-/resources/
-/node_modules/
+node_modules
 
-# Hugo server generated files
-hugo_stats.json
-.hugo_build.lock
+# Output
+.output
+.vercel
+.netlify
+.wrangler
+/.svelte-kit
+/build
 
-# System-specific files
+# OS
 .DS_Store
 Thumbs.db
 .idea/
 *.swp
 
+# Env / secrets
+.env
+.env.*
+!.env.example
+!.env.test
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+.cf.env
+
 .claude
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# dotagent: derived MCP index — markdown is canonical (D-0027)
+.agent/dotagent.db
+.agent/dotagent.db-*

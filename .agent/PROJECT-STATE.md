@@ -1,11 +1,13 @@
 # Project State
 
 **Last updated:** 2026-06-27
-**Active focus:** Just bootstrapped into dotagent. Rebuilding the Hugo site as a
-SvelteKit 5 app on Cloudflare (M1). The ready task is M1.T1 — scaffold the
-SvelteKit/TS/Tailwind/Cloudflare app and archive Hugo. Backend milestones (M2
-Telnyx SMS, M3 OIDC control panel) are gated behind M1 and have open research
-(see REPORTS once it lands).
+**Active focus:** Rebuilding the Hugo site as a SvelteKit 5 app on Cloudflare
+(M1), on branch `m1-sveltekit-rebuild`. **M1.T1 done** — app scaffolded
+(SvelteKit 5 + TS strict + Tailwind v4 + adapter-cloudflare), Hugo archived,
+build + dev + svelte-check + lint all green, and a polished outdoorsy design
+system + designed home page shipped. Ready next: T2 (typed `site.ts` content
+module) and T7 (CI). All three backend research reports are in `.agent/REPORTS/`
+(Telnyx A2P, Cloudflare content-store → git-backed, OIDC → Cloudflare Access).
 
 ---
 
@@ -28,7 +30,7 @@ Telnyx SMS, M3 OIDC control panel) are gated behind M1 and have open research
 ## 2. Active milestone
 
 **Milestone:** M1 — SvelteKit + SEO rebuild to parity on Cloudflare → see `.agent/ROADMAP.md`.
-Ready: M1.T1 (scaffold). Blocked behind it: T2–T7.
+Done: T1 (scaffold). Ready: T2 (content module), T7 (CI). Blocked: T3–T6.
 **Active blockers:** none for M1 code. (Owner data gates content-fill B1; Telnyx
 A2P registration gates M2; content-store choice gates M3.)
 

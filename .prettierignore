@@ -1,0 +1,12 @@
+# Generated / vendored
+.svelte-kit
+build
+node_modules
+package-lock.json
+
+# dotagent tracking surface + archived Hugo site
+.agent
+archive
+
+# Published by the dotagent tool, not hand-formatted
+CLAUDE.md

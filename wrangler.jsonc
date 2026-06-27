@@ -1,0 +1,15 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "camping4you",
+	// Pages config does NOT support "account_id" (Workers-only). The account
+	// (d8180afb… "Halsey") is supplied to CI via CLOUDFLARE_ACCOUNT_ID; the
+	// deploy token via CLOUDFLARE_API_TOKEN. Both live in .cf.env (gitignored).
+	"pages_build_output_dir": ".svelte-kit/cloudflare",
+	"compatibility_date": "2026-06-23",
+	"compatibility_flags": ["nodejs_compat"]
+
+	// Future secrets (M2 Telnyx, M3 OIDC) are set out of band, never here:
+	//   npx wrangler pages secret put TELNYX_API_KEY
+	//   npx wrangler pages secret put TELNYX_PUBLIC_KEY
+	// Local dev: put the same keys in .dev.vars (gitignored).
+}
