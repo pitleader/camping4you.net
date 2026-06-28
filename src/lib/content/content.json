@@ -3,7 +3,10 @@
 	"description": "Leisure Oaks Park is a quiet, shaded campground for RVs and travelers in Bartonville, Illinois — full hookups, easy access, and a friendly office that makes every stay simple.",
 	"email": "info@camping4you.net",
 	"reviewUrl": "https://g.page/r/CYFbWuGbDke_EAI/review",
-	"phone": { "display": "(309) 697-4871", "href": "+13096974871" },
+	"phone": {
+		"display": "(309) 697-4871",
+		"href": "+13096974871"
+	},
 	"address": {
 		"street": "5805 S Lafayette Ave",
 		"city": "Bartonville",
@@ -16,7 +19,14 @@
 		"display": "Mon–Sat 8:00 AM – 6:00 PM",
 		"specification": [
 			{
-				"days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+				"days": [
+					"Monday",
+					"Tuesday",
+					"Wednesday",
+					"Thursday",
+					"Friday",
+					"Saturday"
+				],
 				"opens": "08:00",
 				"closes": "18:00"
 			}
@@ -24,17 +34,53 @@
 	},
 	"rates": {
 		"categories": [
-			{ "name": "Nightly", "price": null, "note": "per site, per night" },
-			{ "name": "Weekly", "price": null, "note": "7 consecutive nights" },
-			{ "name": "Monthly", "price": null, "note": "30 days" },
-			{ "name": "Seasonal", "price": null, "note": "the full season" }
+			{
+				"name": "Nightly",
+				"price": null,
+				"note": "per site, per night"
+			},
+			{
+				"name": "Weekly",
+				"price": null,
+				"note": "7 consecutive nights"
+			},
+			{
+				"name": "Monthly",
+				"price": null,
+				"note": "30 days"
+			},
+			{
+				"name": "Seasonal",
+				"price": null,
+				"note": "the full season"
+			}
 		],
 		"extras": [
-			{ "name": "Electric Hookup (30 amp)", "price": null, "note": "" },
-			{ "name": "Electric Hookup (50 amp)", "price": null, "note": "" },
-			{ "name": "Water & Sewer", "price": "Included", "note": "" },
-			{ "name": "Extra Vehicle", "price": null, "note": "" },
-			{ "name": "Guest Day Pass", "price": null, "note": "" }
+			{
+				"name": "Electric Hookup (30 amp)",
+				"price": null,
+				"note": ""
+			},
+			{
+				"name": "Electric Hookup (50 amp)",
+				"price": null,
+				"note": ""
+			},
+			{
+				"name": "Water & Sewer",
+				"price": "Included",
+				"note": ""
+			},
+			{
+				"name": "Extra Vehicle",
+				"price": null,
+				"note": ""
+			},
+			{
+				"name": "Guest Day Pass",
+				"price": null,
+				"note": ""
+			}
 		]
 	},
 	"rules": {
@@ -126,5 +172,7 @@
 			"Consent to receive SMS is not a condition of purchase or service."
 		]
 	},
-	"legal": { "effectiveDate": "March 2, 2026" }
+	"legal": {
+		"effectiveDate": "March 2, 2026"
+	}
 }
