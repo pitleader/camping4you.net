@@ -50,7 +50,9 @@ export function isAllowed(email: string): boolean {
 export function decodeIdTokenClaims(idToken: string): Record<string, unknown> {
 	const part = idToken.split('.')[1];
 	if (!part) throw new Error('Malformed ID token');
-	const json = atob(part.replace(/-/g, '+').replace(/_/g, '/'));
+	// Decode base64url → bytes → UTF-8 (so accented names like "Stéphen" survive;
+	// a plain atob() would mangle multi-byte characters).
+	const json = new TextDecoder().decode(fromB64url(part));
 	return JSON.parse(json);
 }
 
