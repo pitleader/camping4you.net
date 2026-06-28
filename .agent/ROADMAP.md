@@ -15,10 +15,10 @@ scope until a new dated decision.
 
 - [x] **T1** Refactor editable park content out of `site.ts` into `src/lib/content/content.json`; `site.ts` imports + types it (copy-truth `null` rule preserved). — source: D-0001 — done: src/lib/content/content.json, src/lib/content/site.ts
       done-when: all public pages render unchanged from `content.json`-backed `site.ts`; check/lint/test/build green. ✓ editable content (tagline, NAP, hours, rates, rules, sms, legal) now in content.json typed via EditableContent; infra config (url, tokens, geo) stays in site.ts; all gates green, output identical.
-- [ ] **T2** Entra OIDC auth — authorization-code + PKCE (`arctic`), signed session cookie (Web Crypto HMAC), admin allowlist enforced in `hooks.server.ts` → `event.locals.user`; secrets server-only. — source: D-0001 — depends: [T1]
-      done-when: a login round-trip against Entra sets a session; non-allowlisted users are denied; `/admin/**` is `prerender=false` and unreachable when unauthenticated.
-- [ ] **T3** Admin shell — login page, dashboard, `/admin` layout (SSR), sign-out. — depends: [T2]
-      done-when: signed-in operator sees the dashboard; sign-out clears the session.
+- [x] **T2** Entra OIDC auth — authorization-code + PKCE (`arctic`), signed session cookie (Web Crypto HMAC), admin allowlist enforced in `hooks.server.ts` → `event.locals.user`; secrets server-only. — source: D-0001 — depends: [T1] — done: src/lib/server/auth.ts, src/hooks.server.ts
+      done-when: a login round-trip against Entra sets a session; non-allowlisted users are denied; `/admin/**` is `prerender=false` and unreachable when unauthenticated. ✓ guard verified (unauth /admin → 303 /admin/login); session sign/verify (HMAC), allowlist, PKCE flow + callback coded against arctic; secrets via $env/dynamic/private. Live Entra round-trip verifies in T6 with the owner's app.
+- [x] **T3** Admin shell — login page, dashboard, `/admin` layout (SSR), sign-out. — depends: [T2] — done: src/routes/admin/+layout.svelte, src/routes/admin/+page.svelte
+      done-when: signed-in operator sees the dashboard; sign-out clears the session. ✓ /admin layout (own chrome, no public nav), login page (Sign in with Microsoft), dashboard with section cards, POST sign-out; admin excluded from prerender.
 - [ ] **T4** Editor forms — edit rates, hours, rules, office hours, and notices against `content.json`; Zod-validated; copy-truth (clearing a price → `null`). — depends: [T3]
       done-when: forms load current values and validate edits; preview of the resulting `content.json`.
 - [ ] **T5** Save action — commit the updated `content.json` to the repo via the GitHub API (fine-grained token, Contents r/w), which triggers `deploy.yml` → rebuild. — depends: [T4]

@@ -1,0 +1,25 @@
+# Admin control panel secrets. Copy to `.dev.vars` (gitignored) for local dev,
+# and set the same keys as Cloudflare Pages secrets for production:
+#   npx wrangler pages secret put ENTRA_TENANT_ID
+#   ...etc
+#
+# Entra app registration (owner): redirect URI
+#   https://camping4you.net/admin/auth/callback   (prod)
+#   http://localhost:5173/admin/auth/callback      (dev)
+# delegated scopes: openid profile email; with a client secret.
+
+ENTRA_TENANT_ID=
+ENTRA_CLIENT_ID=
+ENTRA_CLIENT_SECRET=
+
+# Comma- or space-separated list of authorized operator emails.
+ADMIN_ALLOWLIST=
+
+# Random 32+ byte secret for signing session cookies (e.g. `openssl rand -hex 32`).
+SESSION_SECRET=
+
+# Fine-grained GitHub token (this repo only, Contents: read/write) for the
+# git-backed content save (M3.T5).
+GITHUB_TOKEN=
+GITHUB_REPO=pitleader/camping4you.net
+GITHUB_BRANCH=main

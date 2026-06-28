@@ -13,12 +13,10 @@
 
 ## Now
 
-- [ ] Entra OIDC auth — authorization-code + PKCE (`arctic`), signed session cookie (Web Crypto HMAC), admin allowlist enforced in `hooks.server.ts` → `event.locals.user`; secrets server-only. — source: ROADMAP M3.T2 (D-0001 — depends: [T1])
+- [ ] Editor forms — edit rates, hours, rules, office hours, and notices against `content.json`; Zod-validated; copy-truth (clearing a price → `null`). — source: ROADMAP M3.T4
 
 ## Next
 
-- [ ] Admin shell — login page, dashboard, `/admin` layout (SSR), sign-out. — source: ROADMAP M3.T3
-- [ ] Editor forms — edit rates, hours, rules, office hours, and notices against `content.json`; Zod-validated; copy-truth (clearing a price → `null`). — source: ROADMAP M3.T4
 - [ ] Save action — commit the updated `content.json` to the repo via the GitHub API (fine-grained token, Contents r/w), which triggers `deploy.yml` → rebuild. — source: ROADMAP M3.T5
 - [ ] Harden + ship — per-request CSP nonce on `/admin` (folds B10), deploy, verify end-to-end with the owner's Entra app + GitHub token. — source: ROADMAP M3.T6
 

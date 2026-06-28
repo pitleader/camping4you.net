@@ -1,10 +1,14 @@
 <script lang="ts">
 	import './layout.css';
+	import { page } from '$app/state';
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { site } from '$lib/content/site';
 
 	let { children } = $props();
+
+	// The /admin area brings its own chrome — no public marketing nav/footer.
+	const isAdmin = $derived(page.url.pathname.startsWith('/admin'));
 
 	// Cloudflare Web Analytics beacon (cookieless), rendered only when a token is
 	// set. Emitted via {@html} so Svelte doesn't parse the inline <script>.
@@ -29,10 +33,14 @@
 	Skip to content
 </a>
 
-<div id="top" class="flex min-h-dvh flex-col">
-	<Nav />
-	<main id="main" class="flex-1">
-		{@render children()}
-	</main>
-	<Footer />
-</div>
+{#if isAdmin}
+	{@render children()}
+{:else}
+	<div id="top" class="flex min-h-dvh flex-col">
+		<Nav />
+		<main id="main" class="flex-1">
+			{@render children()}
+		</main>
+		<Footer />
+	</div>
+{/if}

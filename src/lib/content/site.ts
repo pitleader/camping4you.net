@@ -2,9 +2,9 @@
  * Single source of truth for every park fact. Pages, the SEO graph, and the
  * footer read from `site`; nothing about the park is hardcoded in a template.
  *
- * Editable content lives in `content.json` (the operator control panel commits
- * that file; D-0001 — git-backed store). Infrastructure config (domain,
- * verification + analytics tokens, OG image, geo, social) stays here in code.
+ * Editable content lives in `content.json` — the operator control panel commits
+ * that file and the site rebuilds. Infrastructure config (domain, verification +
+ * analytics tokens, OG image, geo, social) stays here in code.
  *
  * TRUTH CONTRACT: a fact the owner has not confirmed is `null`, never a
  * plausible guess. `null` renders as an honest fallback ("Call for rates"), so a
