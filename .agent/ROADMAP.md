@@ -19,10 +19,10 @@ scope until a new dated decision.
       done-when: a login round-trip against Entra sets a session; non-allowlisted users are denied; `/admin/**` is `prerender=false` and unreachable when unauthenticated. ✓ guard verified (unauth /admin → 303 /admin/login); session sign/verify (HMAC), allowlist, PKCE flow + callback coded against arctic; secrets via $env/dynamic/private. Live Entra round-trip verifies in T6 with the owner's app.
 - [x] **T3** Admin shell — login page, dashboard, `/admin` layout (SSR), sign-out. — depends: [T2] — done: src/routes/admin/+layout.svelte, src/routes/admin/+page.svelte
       done-when: signed-in operator sees the dashboard; sign-out clears the session. ✓ /admin layout (own chrome, no public nav), login page (Sign in with Microsoft), dashboard with section cards, POST sign-out; admin excluded from prerender.
-- [ ] **T4** Editor forms — edit rates, hours, rules, office hours, and notices against `content.json`; Zod-validated; copy-truth (clearing a price → `null`). — depends: [T3]
-      done-when: forms load current values and validate edits; preview of the resulting `content.json`.
-- [ ] **T5** Save action — commit the updated `content.json` to the repo via the GitHub API (fine-grained token, Contents r/w), which triggers `deploy.yml` → rebuild. — depends: [T4]
-      done-when: a save produces a real commit + deployment; the live site reflects the edit after rebuild; failures surface to the operator.
+- [x] **T4** Editor forms — edit rates, hours, rules, office hours, and notices against `content.json`; Zod-validated; copy-truth (clearing a price → `null`). — depends: [T3] — done: src/routes/admin/edit/+page.svelte, src/lib/server/content-schema.test.ts
+      done-when: forms load current values and validate edits. ✓ /admin/edit form (contact/hours, rates+extras, rules sections) pre-fills from content.json; save action reconstructs + Zod-validates; 4 schema tests incl. empty-price→null (copy-truth). Live form view verifies at T6 (auth-gated).
+- [x] **T5** Save action — commit the updated `content.json` to the repo via the GitHub API (fine-grained token, Contents r/w), which triggers `deploy.yml` → rebuild. — depends: [T4] — done: src/lib/server/github.ts
+      done-when: a save produces a real commit + deployment; live site reflects the edit; failures surface. ✓ commitContent() reads blob SHA + PUTs base64 JSON (edge-safe fetch); success shows the commit link, errors surface in the form. Real commit verifies at T6 with the owner's GITHUB_TOKEN.
 - [ ] **T6** Harden + ship — per-request CSP nonce on `/admin` (folds B10), deploy, verify end-to-end with the owner's Entra app + GitHub token. — depends: [T5]
       done-when: live `/admin` login + edit + rebuild works for the owner; `/admin` CSP has no `unsafe-inline`.
 

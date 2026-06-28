@@ -13,12 +13,9 @@
 
 ## Now
 
-- [ ] Editor forms — edit rates, hours, rules, office hours, and notices against `content.json`; Zod-validated; copy-truth (clearing a price → `null`). — source: ROADMAP M3.T4
+- [ ] Harden + ship — per-request CSP nonce on `/admin` (folds B10), deploy, verify end-to-end with the owner's Entra app + GitHub token. — source: ROADMAP M3.T6
 
 ## Next
-
-- [ ] Save action — commit the updated `content.json` to the repo via the GitHub API (fine-grained token, Contents r/w), which triggers `deploy.yml` → rebuild. — source: ROADMAP M3.T5
-- [ ] Harden + ship — per-request CSP nonce on `/admin` (folds B10), deploy, verify end-to-end with the owner's Entra app + GitHub token. — source: ROADMAP M3.T6
 
 ## Parked
 

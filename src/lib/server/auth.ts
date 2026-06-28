@@ -96,7 +96,7 @@ export async function readSession(
 ): Promise<AdminUser | null> {
 	if (!token || !token.includes('.')) return null;
 	const [body, sig] = token.split('.');
-	let ok = false;
+	let ok: boolean;
 	try {
 		ok = await crypto.subtle.verify(
 			'HMAC',
