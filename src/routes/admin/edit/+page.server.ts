@@ -16,6 +16,7 @@ function reconstruct(form: FormData): unknown {
 	base.tagline = s('tagline');
 	base.description = s('description');
 	base.email = s('email');
+	base.reviewUrl = s('reviewUrl');
 	base.phone = { display: s('phone_display'), href: s('phone_href') };
 	base.address = {
 		street: s('addr_street'),

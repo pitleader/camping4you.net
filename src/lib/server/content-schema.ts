@@ -35,6 +35,7 @@ export const contentSchema = z.object({
 	tagline: z.string().trim().min(1),
 	description: z.string().trim().min(1),
 	email: z.string().trim().email(),
+	reviewUrl: z.union([z.string().trim().url(), z.literal('')]),
 	phone: z.object({
 		display: z.string().trim().min(1),
 		href: z.string().trim().min(1)

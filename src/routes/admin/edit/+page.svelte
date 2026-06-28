@@ -96,6 +96,15 @@
 				/>
 			</div>
 			<div class="sm:col-span-2">
+				<label class={label} for="reviewUrl">Google review link</label><input
+					class={field}
+					id="reviewUrl"
+					name="reviewUrl"
+					value={c.reviewUrl}
+					placeholder="https://g.page/r/…/review (blank to hide)"
+				/>
+			</div>
+			<div class="sm:col-span-2">
 				<label class={label} for="hours_display">Office hours (shown)</label><input
 					class={field}
 					id="hours_display"

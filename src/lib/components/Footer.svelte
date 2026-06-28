@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { MapPin, Phone, Mail, Trees } from '@lucide/svelte';
+	import { MapPin, Phone, Mail, Trees, Star } from '@lucide/svelte';
 	import { site } from '$lib/content/site';
 
 	const year = 2026;
@@ -17,6 +17,16 @@
 			<p class="mt-3 max-w-sm text-sm leading-relaxed text-muted">
 				Your home away from home — a quiet, shaded campground in Bartonville, Illinois.
 			</p>
+			{#if site.reviewUrl}
+				<a
+					href={site.reviewUrl}
+					target="_blank"
+					rel="noopener"
+					class="mt-5 inline-flex items-center gap-2 rounded-full border border-line-strong px-4 py-2 text-sm font-medium text-ink transition-colors hover:bg-surface-2"
+				>
+					<Star size={15} class="text-accent" /> Leave us a review
+				</a>
+			{/if}
 		</div>
 
 		<div>

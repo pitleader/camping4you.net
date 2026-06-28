@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Phone, Mail, MapPin, Clock, Navigation } from '@lucide/svelte';
+	import { Phone, Mail, MapPin, Clock, Navigation, Star } from '@lucide/svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import { site, formattedAddress } from '$lib/content/site';
@@ -82,5 +82,24 @@
 				<span class="mt-0.5 block font-medium">{site.hours.display}</span>
 			</div>
 		</div>
+
+		{#if site.reviewUrl}
+			<a
+				href={site.reviewUrl}
+				target="_blank"
+				rel="noopener"
+				class="group flex items-start gap-4 rounded-2xl border border-line bg-surface/60 p-6 transition-colors hover:border-line-strong sm:col-span-2"
+			>
+				<span class="grid size-11 shrink-0 place-items-center rounded-xl bg-accent/15 text-accent">
+					<Star size={20} />
+				</span>
+				<span>
+					<span class="block text-sm text-muted">Enjoyed your stay?</span>
+					<span class="mt-0.5 block font-display text-lg font-semibold"
+						>Leave us a Google review</span
+					>
+				</span>
+			</a>
+		{/if}
 	</div>
 </section>

@@ -44,6 +44,8 @@ export interface EditableContent {
 	tagline: string;
 	description: string;
 	email: string;
+	/** Google "write a review" link. Empty → the review CTA is hidden. */
+	reviewUrl: string;
 	phone: { display: string; href: string };
 	address: {
 		street: string;
@@ -96,6 +98,7 @@ export const site = {
 	tagline: content.tagline,
 	description: content.description,
 	email: content.email,
+	reviewUrl: content.reviewUrl,
 	phone: content.phone,
 	address: content.address,
 	hours: content.hours,
