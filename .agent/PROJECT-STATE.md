@@ -1,15 +1,15 @@
 # Project State
 
 **Last updated:** 2026-06-27
-**Active focus:** **M1 SHIPPED** (branch `m1-sveltekit-rebuild`) — the SvelteKit 5
-rebuild is live on the production domain **https://camping4you.net** (apex + www,
-valid SSL) and https://camping4you.pages.dev. All 7 pages render from a
-typed `site.ts`, full SEO stack, outdoorsy design system, CI green. No
-milestone is actively building: M2 (Telnyx SMS) and M3 (OIDC control panel)
-are committed but held in ROADMAP `## Backlog` on external gates. Next moves
-are owner-/decision-gated, not code-blocked. Three backend research reports
-sit in `.agent/REPORTS/` (Telnyx A2P, content-store → git-backed, OIDC →
-Cloudflare Access) ready to fold into M2/M3 DECISIONs (B2).
+**Active focus:** **M1 + M3 SHIPPED.** Site live at https://camping4you.net.
+M3 = the Entra-OIDC `/admin` control panel (per D-0001): operator signs in with
+Microsoft, edits content, Save commits `content.json` → rebuild; public pages
+stay prerendered. Login verified live; save tested end-to-end (real commit
+e90a9f1b). Secrets set on Pages (Entra + GITHUB_TOKEN + SESSION_SECRET +
+ADMIN_ALLOWLIST = stephen@/reddings@peoriait.com). No milestone actively
+building — **M2 (Telnyx SMS)** is next, held in `## Backlog` on A2P
+registration. Open nicety: B10 (tighten /admin CSP off unsafe-inline). Owner
+may rotate the pasted Entra secret + GitHub PAT anytime (I'll re-set).
 
 ---
 

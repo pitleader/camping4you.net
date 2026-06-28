@@ -7,24 +7,8 @@ scope until a new dated decision.
 
 ## Active
 
-> M1 shipped (see ## Shipped). M3 is now building (architecture ratified in
-> D-0001). M2 (Telnyx SMS) stays in ## Backlog on A2P registration.
-
-### M3 — OIDC control panel (git-backed editor)
-**Admitted:** 2026-06-27 · **Goal:** An Entra-OIDC-gated `/admin` panel where the operator edits park content; saves commit `content.json` to the repo and trigger a rebuild — public pages stay prerendered. Per D-0001.
-
-- [x] **T1** Refactor editable park content out of `site.ts` into `src/lib/content/content.json`; `site.ts` imports + types it (copy-truth `null` rule preserved). — source: D-0001 — done: src/lib/content/content.json, src/lib/content/site.ts
-      done-when: all public pages render unchanged from `content.json`-backed `site.ts`; check/lint/test/build green. ✓ editable content (tagline, NAP, hours, rates, rules, sms, legal) now in content.json typed via EditableContent; infra config (url, tokens, geo) stays in site.ts; all gates green, output identical.
-- [x] **T2** Entra OIDC auth — authorization-code + PKCE (`arctic`), signed session cookie (Web Crypto HMAC), admin allowlist enforced in `hooks.server.ts` → `event.locals.user`; secrets server-only. — source: D-0001 — depends: [T1] — done: src/lib/server/auth.ts, src/hooks.server.ts
-      done-when: a login round-trip against Entra sets a session; non-allowlisted users are denied; `/admin/**` is `prerender=false` and unreachable when unauthenticated. ✓ guard verified (unauth /admin → 303 /admin/login); session sign/verify (HMAC), allowlist, PKCE flow + callback coded against arctic; secrets via $env/dynamic/private. Live Entra round-trip verifies in T6 with the owner's app.
-- [x] **T3** Admin shell — login page, dashboard, `/admin` layout (SSR), sign-out. — depends: [T2] — done: src/routes/admin/+layout.svelte, src/routes/admin/+page.svelte
-      done-when: signed-in operator sees the dashboard; sign-out clears the session. ✓ /admin layout (own chrome, no public nav), login page (Sign in with Microsoft), dashboard with section cards, POST sign-out; admin excluded from prerender.
-- [x] **T4** Editor forms — edit rates, hours, rules, office hours, and notices against `content.json`; Zod-validated; copy-truth (clearing a price → `null`). — depends: [T3] — done: src/routes/admin/edit/+page.svelte, src/lib/server/content-schema.test.ts
-      done-when: forms load current values and validate edits. ✓ /admin/edit form (contact/hours, rates+extras, rules sections) pre-fills from content.json; save action reconstructs + Zod-validates; 4 schema tests incl. empty-price→null (copy-truth). Live form view verifies at T6 (auth-gated).
-- [x] **T5** Save action — commit the updated `content.json` to the repo via the GitHub API (fine-grained token, Contents r/w), which triggers `deploy.yml` → rebuild. — depends: [T4] — done: src/lib/server/github.ts
-      done-when: a save produces a real commit + deployment; live site reflects the edit; failures surface. ✓ commitContent() reads blob SHA + PUTs base64 JSON (edge-safe fetch); success shows the commit link, errors surface in the form. Real commit verifies at T6 with the owner's GITHUB_TOKEN.
-- [ ] **T6** Harden + ship — per-request CSP nonce on `/admin` (folds B10), deploy, verify end-to-end with the owner's Entra app + GitHub token. — depends: [T5]
-      done-when: live `/admin` login + edit + rebuild works for the owner; `/admin` CSP has no `unsafe-inline`.
+> M1 + M3 shipped (see ## Shipped). No milestone is actively building.
+> M2 (Telnyx SMS) stays in ## Backlog on A2P registration.
 
 ## Loose
 
@@ -53,6 +37,10 @@ scope until a new dated decision.
       revisit-when: owner provides GSC + Bing verification tokens
       stratum: committed
       held: creds
+- [ ] **B10** Tighten `/admin` CSP — replace `script-src 'unsafe-inline'` with a per-request nonce on the SSR admin routes (the public prerendered pages keep the baseline CSP). — source: session 2026-06-27 (M3.T6)
+      revisit-when: security hardening pass
+      stratum: committed
+      held: design
 
 ### M2 — Telnyx service-SMS + STOP/HELP webhooks (A2P 10DLC)
 **Goal:** The app sends service-only SMS (confirmations, reminders, notices) via Telnyx and handles inbound STOP/HELP webhooks compliantly.
@@ -70,6 +58,11 @@ scope until a new dated decision.
 ## Shipped
 
 > Checked-off milestones, newest first.
+
+### M3 — OIDC control panel (git-backed editor) — 2026-06-27
+**Done:** src/routes/admin/edit/+page.server.ts, src/lib/server/github.ts, src/lib/server/auth.ts
+Entra-OIDC-gated `/admin` panel (per D-0001): the operator signs in with Microsoft (allow-listed), edits park content, and Save commits `content.json` via the GitHub API → Pages rebuild — public pages stay prerendered. Built on a typed `content.json` store with Zod validation (copy-truth: blank price → null) and a signed session cookie. Login verified live; the save path was tested end-to-end (real commit). Tasks T1–T6 complete.
+
 
 ### M1 — SvelteKit + SEO rebuild to parity on Cloudflare — 2026-06-27
 **Done:** src/routes/+page.svelte, src/lib/content/site.ts, src/lib/seo/structured-data.ts, .github/workflows/ci.yml

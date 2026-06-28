@@ -10,3 +10,7 @@ archive
 
 # Published by the dotagent tool, not hand-formatted
 CLAUDE.md
+
+# Machine-written by the admin save action (JSON.stringify) — must not be
+# Prettier-gated, or a panel save would fail CI and never deploy.
+src/lib/content/content.json
