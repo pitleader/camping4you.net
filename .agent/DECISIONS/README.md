@@ -41,3 +41,4 @@ automates this.
 
 (Add a row per decision in numeric order. Mark superseded decisions
 inline in the title cell: `— **Superseded by 0NNN (YYYY-MM-DD)**`.)
+| 0001 | 2026-06-27 | [M3 control panel: git-backed content store + Entra OIDC auth](DECISION-0001-m3-control-panel-architecture.md) |

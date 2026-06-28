@@ -7,10 +7,24 @@ scope until a new dated decision.
 
 ## Active
 
-> No milestone is actively building. M1 shipped (see ## Shipped). The next
-> milestones, M2 (Telnyx SMS) and M3 (OIDC control panel), are committed but
-> held in ## Backlog on external gates (Telnyx A2P registration; research-fold
-> decisions). They activate when their `revisit-when:` clears.
+> M1 shipped (see ## Shipped). M3 is now building (architecture ratified in
+> D-0001). M2 (Telnyx SMS) stays in ## Backlog on A2P registration.
+
+### M3 — OIDC control panel (git-backed editor)
+**Admitted:** 2026-06-27 · **Goal:** An Entra-OIDC-gated `/admin` panel where the operator edits park content; saves commit `content.json` to the repo and trigger a rebuild — public pages stay prerendered. Per D-0001.
+
+- [ ] **T1** Refactor editable park content out of `site.ts` into `src/lib/content/content.json`; `site.ts` imports + types it (copy-truth `null` rule preserved). — source: D-0001
+      done-when: all public pages render unchanged from `content.json`-backed `site.ts`; check/lint/test/build green.
+- [ ] **T2** Entra OIDC auth — authorization-code + PKCE (`arctic`), signed session cookie (Web Crypto HMAC), admin allowlist enforced in `hooks.server.ts` → `event.locals.user`; secrets server-only. — source: D-0001 — depends: [T1]
+      done-when: a login round-trip against Entra sets a session; non-allowlisted users are denied; `/admin/**` is `prerender=false` and unreachable when unauthenticated.
+- [ ] **T3** Admin shell — login page, dashboard, `/admin` layout (SSR), sign-out. — depends: [T2]
+      done-when: signed-in operator sees the dashboard; sign-out clears the session.
+- [ ] **T4** Editor forms — edit rates, hours, rules, office hours, and notices against `content.json`; Zod-validated; copy-truth (clearing a price → `null`). — depends: [T3]
+      done-when: forms load current values and validate edits; preview of the resulting `content.json`.
+- [ ] **T5** Save action — commit the updated `content.json` to the repo via the GitHub API (fine-grained token, Contents r/w), which triggers `deploy.yml` → rebuild. — depends: [T4]
+      done-when: a save produces a real commit + deployment; the live site reflects the edit after rebuild; failures surface to the operator.
+- [ ] **T6** Harden + ship — per-request CSP nonce on `/admin` (folds B10), deploy, verify end-to-end with the owner's Entra app + GitHub token. — depends: [T5]
+      done-when: live `/admin` login + edit + rebuild works for the owner; `/admin` CSP has no `unsafe-inline`.
 
 ## Loose
 
@@ -30,7 +44,7 @@ scope until a new dated decision.
       stratum: committed
       held: decision
 - [x] **B6** Security headers + CSP — root `_headers` now sets HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, COOP, and a baseline CSP header on `/*` (Cloudflare Pages serves them on every route, static included). — source: session 2026-06-27 (SEO/security probe) — done: _headers
-      Residual (→ B10): `script-src` uses `'unsafe-inline'` for the prerendered hydration bootstrap (a real header CSP can't carry per-page hashes); fine for a forms-less brochure site, tighten when forms/auth land.
+      Residual (→ M3.T6): `script-src` uses `'unsafe-inline'` for the prerendered hydration bootstrap (a real header CSP can't carry per-page hashes); fine for a forms-less brochure site, tighten when forms/auth land.
 - [ ] **B7** OG share image — design a 1200×630 `og.png` and wire `site.ogImage`; until then `<Seo>` omits og:image (no broken card). — source: session 2026-06-27 (M1.T4/T5)
       revisit-when: brand assets / hero photography available
       stratum: committed
@@ -39,10 +53,6 @@ scope until a new dated decision.
       revisit-when: owner provides GSC + Bing verification tokens
       stratum: committed
       held: creds
-- [ ] **B10** Tighten CSP — replace `script-src 'unsafe-inline'` with hashed/nonce script-src once forms/auth (M2/M3) raise the XSS surface; likely needs the form routes on SSR (not prerender) so a per-request nonce is available. — source: session 2026-06-27 (B6 residual)
-      revisit-when: M2 or M3 adds a form or authenticated route
-      stratum: committed
-      held: design
 
 ### M2 — Telnyx service-SMS + STOP/HELP webhooks (A2P 10DLC)
 **Goal:** The app sends service-only SMS (confirmations, reminders, notices) via Telnyx and handles inbound STOP/HELP webhooks compliantly.
@@ -50,13 +60,6 @@ scope until a new dated decision.
       revisit-when: M1 shipped AND Telnyx brand/campaign (A2P 10DLC) registration approved
       stratum: committed
       held: creds
-
-### M3 — OIDC control panel
-**Goal:** An auth-gated control panel lets the operator edit `site.ts`-backed content; OIDC via Google + Microsoft + Cloudflare Access (free tier).
-- [ ] **B4** Build the OIDC relying-party auth + protected control-panel routes over the chosen content store. — source: PROJECT-SCOPE M3
-      revisit-when: M2 shipped AND content-store (KV / D1 / Durable Object) decided
-      stratum: committed
-      held: design
 
 ### Tier C — Reservations / booking
 - [ ] **B5** Reservations / online booking (in-app vs. external integration both open). — source: PROJECT-SCOPE (out of scope this version)
