@@ -1,0 +1,129 @@
+{
+	"tagline": "Your Home Away From Home",
+	"description": "Leisure Oaks Park is a quiet, shaded campground for RVs and travelers in Bartonville, Illinois — full hookups, easy access, and a friendly office that makes every stay simple.",
+	"email": "info@camping4you.net",
+	"phone": { "display": "(309) 697-4871", "href": "+13096974871" },
+	"address": {
+		"street": "5805 S Lafayette Ave",
+		"city": "Bartonville",
+		"region": "Illinois",
+		"regionCode": "IL",
+		"postalCode": "61607",
+		"country": "US"
+	},
+	"hours": {
+		"display": "Mon–Sat 8:00 AM – 6:00 PM",
+		"specification": [
+			{
+				"days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+				"opens": "08:00",
+				"closes": "18:00"
+			}
+		]
+	},
+	"rates": {
+		"categories": [
+			{ "name": "Nightly", "price": null, "note": "per site, per night" },
+			{ "name": "Weekly", "price": null, "note": "7 consecutive nights" },
+			{ "name": "Monthly", "price": null, "note": "30 days" },
+			{ "name": "Seasonal", "price": null, "note": "the full season" }
+		],
+		"extras": [
+			{ "name": "Electric Hookup (30 amp)", "price": null, "note": "" },
+			{ "name": "Electric Hookup (50 amp)", "price": null, "note": "" },
+			{ "name": "Water & Sewer", "price": "Included", "note": "" },
+			{ "name": "Extra Vehicle", "price": null, "note": "" },
+			{ "name": "Guest Day Pass", "price": null, "note": "" }
+		]
+	},
+	"rules": {
+		"checkIn": "2:00 PM",
+		"checkOut": "12:00 PM",
+		"quietHours": "10:00 PM – 7:00 AM",
+		"speedLimit": "5 MPH",
+		"sections": [
+			{
+				"heading": "General",
+				"rules": [
+					"All guests must register at the office upon arrival.",
+					"Management reserves the right to refuse service or evict guests for rule violations."
+				]
+			},
+			{
+				"heading": "Site & Facilities",
+				"rules": [
+					"Keep your site clean and free of trash at all times.",
+					"Do not move picnic tables, fire rings, or park equipment.",
+					"All trash must be placed in designated dumpsters.",
+					"No washing vehicles or equipment at campsites."
+				]
+			},
+			{
+				"heading": "Fires",
+				"rules": [
+					"Fires are permitted in designated fire rings only.",
+					"Never leave a fire unattended.",
+					"Fires must be fully extinguished before leaving your site or going to sleep."
+				]
+			},
+			{
+				"heading": "Pets",
+				"rules": [
+					"Pets must be leashed at all times.",
+					"Owners must clean up after their pets immediately.",
+					"Aggressive or excessively noisy animals must be removed from the park."
+				]
+			},
+			{
+				"heading": "Vehicles",
+				"rules": [
+					"Observe the posted speed limit at all times.",
+					"One vehicle per site unless otherwise approved.",
+					"ATVs, golf carts, and off-road vehicles are not permitted unless authorized."
+				]
+			},
+			{
+				"heading": "Noise & Conduct",
+				"rules": [
+					"Quiet hours are strictly enforced.",
+					"No excessive noise, music, or disruptive behavior at any time.",
+					"Fireworks and firearms are prohibited."
+				]
+			}
+		]
+	},
+	"sms": {
+		"effectiveDate": "March 2, 2026",
+		"intro": "All messages are service-related only — we do not send marketing or promotional messages.",
+		"samples": [
+			{
+				"label": "Reservation Confirmation",
+				"body": "Leisure Oaks Park: Your reservation for Site #12 is confirmed for June 14–17. Check-in begins at 2:00 PM. Reply STOP to opt out."
+			},
+			{
+				"label": "Check-In Reminder",
+				"body": "Leisure Oaks Park: Reminder — your stay begins tomorrow, June 14. Check-in is 2:00 PM at the front office. See you soon! Reply STOP to opt out."
+			},
+			{
+				"label": "Check-Out Reminder",
+				"body": "Leisure Oaks Park: Friendly reminder — check-out is by 11:00 AM today. Thank you for staying with us! Reply STOP to opt out."
+			},
+			{
+				"label": "Park Notice",
+				"body": "Leisure Oaks Park: Due to weather, the pool area will close at 5:00 PM today. Stay safe and enjoy your evening! Reply STOP to opt out."
+			},
+			{
+				"label": "Reservation Update",
+				"body": "Leisure Oaks Park: Your reservation has been updated. New dates: June 15–18, Site #8. Questions? Call (309) 697-4871. Reply STOP to opt out."
+			}
+		],
+		"details": [
+			"Message frequency varies based on your reservations and park activity.",
+			"Message and data rates may apply depending on your carrier and plan.",
+			"Reply STOP at any time to unsubscribe from SMS messages.",
+			"Reply HELP for assistance, or contact us at (309) 697-4871.",
+			"Consent to receive SMS is not a condition of purchase or service."
+		]
+	},
+	"legal": { "effectiveDate": "March 2, 2026" }
+}

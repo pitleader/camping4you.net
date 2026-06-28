@@ -13,11 +13,10 @@
 
 ## Now
 
-- [ ] Refactor editable park content out of `site.ts` into `src/lib/content/content.json`; `site.ts` imports + types it (copy-truth `null` rule preserved). — source: ROADMAP M3.T1 (D-0001)
+- [ ] Entra OIDC auth — authorization-code + PKCE (`arctic`), signed session cookie (Web Crypto HMAC), admin allowlist enforced in `hooks.server.ts` → `event.locals.user`; secrets server-only. — source: ROADMAP M3.T2 (D-0001 — depends: [T1])
 
 ## Next
 
-- [ ] Entra OIDC auth — authorization-code + PKCE (`arctic`), signed session cookie (Web Crypto HMAC), admin allowlist enforced in `hooks.server.ts` → `event.locals.user`; secrets server-only. — source: ROADMAP M3.T2 (D-0001 — depends: [T1])
 - [ ] Admin shell — login page, dashboard, `/admin` layout (SSR), sign-out. — source: ROADMAP M3.T3
 - [ ] Editor forms — edit rates, hours, rules, office hours, and notices against `content.json`; Zod-validated; copy-truth (clearing a price → `null`). — source: ROADMAP M3.T4
 - [ ] Save action — commit the updated `content.json` to the repo via the GitHub API (fine-grained token, Contents r/w), which triggers `deploy.yml` → rebuild. — source: ROADMAP M3.T5

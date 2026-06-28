@@ -13,8 +13,8 @@ scope until a new dated decision.
 ### M3 — OIDC control panel (git-backed editor)
 **Admitted:** 2026-06-27 · **Goal:** An Entra-OIDC-gated `/admin` panel where the operator edits park content; saves commit `content.json` to the repo and trigger a rebuild — public pages stay prerendered. Per D-0001.
 
-- [ ] **T1** Refactor editable park content out of `site.ts` into `src/lib/content/content.json`; `site.ts` imports + types it (copy-truth `null` rule preserved). — source: D-0001
-      done-when: all public pages render unchanged from `content.json`-backed `site.ts`; check/lint/test/build green.
+- [x] **T1** Refactor editable park content out of `site.ts` into `src/lib/content/content.json`; `site.ts` imports + types it (copy-truth `null` rule preserved). — source: D-0001 — done: src/lib/content/content.json, src/lib/content/site.ts
+      done-when: all public pages render unchanged from `content.json`-backed `site.ts`; check/lint/test/build green. ✓ editable content (tagline, NAP, hours, rates, rules, sms, legal) now in content.json typed via EditableContent; infra config (url, tokens, geo) stays in site.ts; all gates green, output identical.
 - [ ] **T2** Entra OIDC auth — authorization-code + PKCE (`arctic`), signed session cookie (Web Crypto HMAC), admin allowlist enforced in `hooks.server.ts` → `event.locals.user`; secrets server-only. — source: D-0001 — depends: [T1]
       done-when: a login round-trip against Entra sets a session; non-allowlisted users are denied; `/admin/**` is `prerender=false` and unreachable when unauthenticated.
 - [ ] **T3** Admin shell — login page, dashboard, `/admin` layout (SSR), sign-out. — depends: [T2]
