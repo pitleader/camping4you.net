@@ -1,7 +1,12 @@
 # Project State
 
-**Last updated:** 2026-06-27
+**Last updated:** 2026-08-10
 **Active focus:** **M1 + M3 SHIPPED.** Site live at https://camping4you.net.
+Branch `feat/unsplash-imagery` (unmerged) closes B7: `static/og.png` now exists,
+so link unfurls are no longer blank, and it ships the declared-slot image
+pipeline (`scripts/images.config.mjs` + `gen-assets` + `gen-img` +
+`TextureBand.svelte`) with both photo slots empty and optional — B11 is the
+owner dropping Unsplash+ originals in `assets/source/`.
 M3 = the Entra-OIDC `/admin` control panel (per D-0001): operator signs in with
 Microsoft, edits content, Save commits `content.json` → rebuild; public pages
 stay prerendered. Login verified live; save tested end-to-end (real commit
@@ -62,7 +67,9 @@ Only **analytics** fails — needs the owner to enable Cloudflare Web Analytics
 
 ## 5. Next session
 
-M1 is shipped and live. To resume: (1) merge `m1-sveltekit-rebuild` → `main`
+Land `feat/unsplash-imagery` (share card + image pipeline; four gates green on
+the branch) — it is deliberately unmerged for owner review. Then to resume:
+(1) merge `m1-sveltekit-rebuild` → `main`
 (human/PR) so CI + the Pages deploy workflow run on the default branch;
 (2) when ready for M2/M3, fold the three `.agent/REPORTS/` research findings
 into ratified DECISIONs (B2) — recommended picks: content-store **git-backed**,

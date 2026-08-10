@@ -26,6 +26,12 @@ Thumbs.db
 
 .claude
 
+# Image originals: full-resolution Unsplash+ downloads. Never served — the
+# generators write the optimized derivatives that are committed. The README
+# stays tracked because it documents what belongs here.
+/assets/source/*
+!/assets/source/README.md
+
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*

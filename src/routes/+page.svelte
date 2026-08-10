@@ -16,6 +16,7 @@
 	} from '@lucide/svelte';
 	import { site, formatPrice } from '$lib/content/site';
 	import Seo from '$lib/components/Seo.svelte';
+	import TextureBand from '$lib/components/TextureBand.svelte';
 	import { graph, jsonLdScript } from '$lib/seo/structured-data';
 
 	// Marketing copy — presentational, lives with the page.
@@ -150,7 +151,11 @@
 </section>
 
 <!-- ===== Rates teaser ============================================ -->
-<section id="rates" class="border-y border-line bg-surface/40">
+<!-- The page's one full-bleed banded section, so it is where a material texture
+     reads as deliberate. The hero and the contact CTA already carry their own
+     gradients; the sections on the bare canvas are meant to breathe. -->
+<section id="rates" class="relative isolate overflow-hidden border-y border-line bg-surface/40">
+	<TextureBand name="texture-rates" />
 	<div class="mx-auto max-w-6xl px-5 py-20 sm:py-24">
 		<div class="flex flex-wrap items-end justify-between gap-4">
 			<div>

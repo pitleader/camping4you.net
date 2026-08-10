@@ -7,9 +7,12 @@
 
 > One axis: *committed, actionable work not yet done* (D-0035),
 > derived from ROADMAP.md (D-0050). Now = ready tasks; Next =
-> blocked tasks (deps unmet); Parked = ## Backlog tasks (future/parked).
-> Each line cites its ROADMAP task; a Loose task's
-> own source is preserved in parentheses.
+> blocked tasks (deps unmet); Parked = a pointer to ROADMAP
+> ## Backlog (not re-projected). Each line carries its qualified
+> task id at the head and cites its ROADMAP task at the tail;
+> a Loose task's own source is preserved in parentheses.
+> ## Now opens with one `<milestone> <done>/<total> · exit: …`
+> progress marker per Active milestone (D-0091).
 
 ## Now
 
@@ -17,10 +20,4 @@
 
 ## Parked
 
-- [ ] Owner content-fill — replace placeholder rates/hours/policies in `site.ts` with real owner-supplied values. — source: ROADMAP B1 (PROJECT-SCOPE (copy-truth))
-- [ ] Research findings → M2/M3 design — fold `.agent/REPORTS/` research (Telnyx A2P 10DLC, Cloudflare content-store, multi-IdP OIDC) into ratified DECISIONs before building M2/M3. — source: ROADMAP B2 (session 2026-06-27 Phase 3)
-- [ ] OG share image — design a 1200×630 `og.png` and wire `site.ogImage`; until then `<Seo>` omits og:image (no broken card). — source: ROADMAP B7 (session 2026-06-27 (M1.T4/T5))
-- [ ] Search-engine verification — add Google Search Console + Bing Webmaster tokens to `site.ts` `verification` (`<Seo>` emits them when set); confirm GSC/Bing ownership. IndexNow already pings on deploy. — source: ROADMAP B9 (session 2026-06-27 (probe))
-- [ ] Tighten `/admin` CSP — replace `script-src 'unsafe-inline'` with a per-request nonce on the SSR admin routes (the public prerendered pages keep the baseline CSP). — source: ROADMAP B10 (session 2026-06-27 (M3.T6))
-- [ ] Build the Telnyx send adapter + inbound webhook route (signature-verified, idempotent) with STOP/HELP keyword handling and consent records. — source: ROADMAP M2.B3 (PROJECT-SCOPE M2)
-- [ ] Reservations / online booking (in-app vs. external integration both open). — source: ROADMAP M2.B5 (PROJECT-SCOPE (out of scope this version))
+> Backlog → ROADMAP.md `## Backlog` (canonical; not re-projected — already session-read).

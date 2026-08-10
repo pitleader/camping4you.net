@@ -88,8 +88,13 @@ export const site = {
 	 */
 	analytics: { cfBeaconToken: '6e2215c17c89425ca0e3ae7ee775748d' },
 
-	/** OG/share image (1200×630). null until the asset exists — no broken card. */
-	ogImage: null as string | null,
+	/**
+	 * Share image (1200×630), composed by `npm run assets` from this file's own
+	 * copy plus the park mark. The published path is load-bearing: social
+	 * platforms cache previews by URL, so renaming it breaks every unfurl already
+	 * in the wild until those platforms re-scrape.
+	 */
+	ogImage: '/og.png' as string | null,
 
 	/** Lat/long not yet owner-confirmed — omit from the SEO graph until it is. */
 	geo: null as { lat: number; lng: number } | null,

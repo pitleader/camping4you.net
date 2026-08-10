@@ -29,9 +29,11 @@ scope until a new dated decision.
       held: decision
 - [x] **B6** Security headers + CSP — root `_headers` now sets HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, COOP, and a baseline CSP header on `/*` (Cloudflare Pages serves them on every route, static included). — source: session 2026-06-27 (SEO/security probe) — done: _headers
       Residual (→ M3.T6): `script-src` uses `'unsafe-inline'` for the prerendered hydration bootstrap (a real header CSP can't carry per-page hashes); fine for a forms-less brochure site, tighten when forms/auth land.
-- [ ] **B7** OG share image — design a 1200×630 `og.png` and wire `site.ogImage`; until then `<Seo>` omits og:image (no broken card). — source: session 2026-06-27 (M1.T4/T5)
-      revisit-when: brand assets / hero photography available
+- [x] **B7** OG share image — `static/og.png` (1200×630) is composed by `npm run assets` from the park mark, the dusk-sky/treeline motifs, and `content.json` copy, and `site.ogImage` is wired, so every unfurl now carries a card. Built in three layers so an optional photographic backdrop can slot under the artwork without touching it. — source: session 2026-06-27 (M1.T4/T5) — done: scripts/gen-assets.mjs, static/og.png, src/lib/content/site.ts
+- [ ] **B11** Owner imagery for the two declared photo slots — drop Unsplash+ originals into `assets/source/` (`og-backdrop.*`, `texture-rates.*`) and run `npm run assets` + `npm run img`. The pipeline, the slot declarations, and the picking brief are shipped; both slots are optional and the site is complete and green while empty. Non-representational imagery only, and none of it may go on the Google Business Profile. — source: session 2026-08-10
+      revisit-when: owner downloads originals from their Unsplash+ account
       stratum: committed
+      held: creds
 - [x] **B8** Enable analytics — Cloudflare Web Analytics enabled; beacon token wired into `site.analytics.cfBeaconToken`, rendered cookieless from `+layout.svelte` (edge auto-injection was flaky on the Pages custom domain, so the manual token is the reliable path). CSP already allow-lists the beacon. — source: session 2026-06-27 (probe) — done: src/lib/content/site.ts, src/routes/+layout.svelte
 - [ ] **B9** Search-engine verification — add Google Search Console + Bing Webmaster tokens to `site.ts` `verification` (`<Seo>` emits them when set); confirm GSC/Bing ownership. IndexNow already pings on deploy. — source: session 2026-06-27 (probe)
       revisit-when: owner provides GSC + Bing verification tokens
