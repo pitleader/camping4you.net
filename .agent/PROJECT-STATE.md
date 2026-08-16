@@ -1,12 +1,14 @@
 # Project State
 
-**Last updated:** 2026-08-10
+**Last updated:** 2026-08-16
 **Active focus:** **M1 + M3 SHIPPED.** Site live at https://camping4you.net.
-Branch `feat/unsplash-imagery` (unmerged) closes B7: `static/og.png` now exists,
-so link unfurls are no longer blank, and it ships the declared-slot image
-pipeline (`scripts/images.config.mjs` + `gen-assets` + `gen-img` +
-`TextureBand.svelte`) with both photo slots empty and optional — B11 is the
-owner dropping Unsplash+ originals in `assets/source/`.
+B7 closed and landed on `main` (98369ce, deployed 2026-08-16): `static/og.png`
+serves 200 and the home page emits `og:image` + `twitter:card
+summary_large_image`, so link unfurls are no longer blank. Same commit ships the
+declared-slot image pipeline (`scripts/images.config.mjs` + `gen-assets` +
+`gen-img` + `TextureBand.svelte`) with both photo slots empty and optional, and
+bumps the CI/deploy actions to v7. **B11** is the remaining half: the owner
+dropping Unsplash+ originals into `assets/source/` (brief in its README).
 M3 = the Entra-OIDC `/admin` control panel (per D-0001): operator signs in with
 Microsoft, edits content, Save commits `content.json` → rebuild; public pages
 stay prerendered. Login verified live; save tested end-to-end (real commit
@@ -40,7 +42,9 @@ may rotate the pasted Entra secret + GitHub PAT anytime (I'll re-set).
 Next: M2 (Telnyx SMS) / M3 (OIDC control panel), both in `## Backlog`, gated.
 **Active blockers / gates:** Telnyx A2P brand+campaign registration (M2);
 content-store decision from research (M3); owner data for content-fill (B1);
-merge `m1-sveltekit-rebuild` → `main` (human/PR).
+owner-supplied Unsplash+ originals (B11). The old "merge `m1-sveltekit-rebuild`
+→ `main`" gate is retired — that branch is fully contained in `main` (verified
+`git log main..m1-sveltekit-rebuild` empty, 2026-08-16).
 
 ---
 
@@ -67,10 +71,10 @@ Only **analytics** fails — needs the owner to enable Cloudflare Web Analytics
 
 ## 5. Next session
 
-Land `feat/unsplash-imagery` (share card + image pipeline; four gates green on
-the branch) — it is deliberately unmerged for owner review. Then to resume:
-(1) merge `m1-sveltekit-rebuild` → `main`
-(human/PR) so CI + the Pages deploy workflow run on the default branch;
+The share card is landed and deployed; nothing is in flight. To resume:
+(1) **B11** — when the owner has Unsplash+ originals, drop them in
+`assets/source/` and run `npm run assets` + `npm run img`, then judge them
+through the real pipeline in both themes (never from the original file);
 (2) when ready for M2/M3, fold the three `.agent/REPORTS/` research findings
 into ratified DECISIONs (B2) — recommended picks: content-store **git-backed**,
 auth **Cloudflare Access**, SMS **Telnyx Low-Volume-Mixed**; (3) owner inputs
