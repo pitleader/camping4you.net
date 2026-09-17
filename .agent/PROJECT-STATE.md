@@ -1,7 +1,18 @@
 # Project State
 
-**Last updated:** 2026-09-17
-**Active focus:** **SEO / winter push (2026-09-17).** Triage in
+**Last updated:** 2026-09-17 (pm)
+**Active focus:** **SEO / winter push (2026-09-17).** Late-session (2026-09-17 pm):
+GBP winter post was rejected for a phone number in the body (posts policy forbids
+it; Call-now button is the sanctioned channel) — copy fixed in
+`docs/google-business-profile.md`, owner deleted the post and reposted, no
+appeal needed. Lighthouse live home: Perf 78→97, LCP 5.0→2.3 s after latin
+font preload (`hooks.server.ts` resolve `preload` filter); SEO/A11y 100.
+Cloudflare Web Analytics: the manual beacon carried an automatic-setup token and
+every RUM POST 404'd (0 views for months); zone site flipped to JS-snippet mode
+via the RUM API (cf-minter `web-analytics` profile) and `site.ts` carries the new
+token — RUM POST verified 204. The Pages project also injects its own beacon
+(`4dfb…`, cannot be disabled) so the home page double-reports into two dashboards;
+the zone-level dashboard (`ce41…`) is the one to read. Triage in
 `.agent/REPORTS/2026-09-17-seo-winter-triage.md` (9 findings, all
 dispositioned). Shipped: `/winter-camping` (FAQPage schema), home H1 +
 year-round section, geo coords, Google Ads tag + tel-click conversion wiring
