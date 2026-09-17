@@ -14,9 +14,8 @@ scope until a new dated decision.
 
 > Milestone-less one-liner tasks.
 
-- [ ] **L1** Ads conversion IDs — set `site.ads.conversionId` (AW-…) + `callLabel` in `site.ts`; the Google tag + tel-click conversion (layout) and CSP origins (`_headers`) are already wired and emit only when set. — source: REPORTS/2026-09-17-seo-winter-triage.md F9
-      revisit-when: owner creates the Google Ads account and a "phone click" conversion action
-      held: creds
+- [x] **L1** Ads conversion IDs — set `site.ads.conversionId` (AW-…) + `callLabel` in `site.ts`; the Google tag + tel-click conversion (layout) and CSP origins (`_headers`) are already wired and emit only when set. — source: REPORTS/2026-09-17-seo-winter-triage.md F9
+      done: 2026-09-17 — AW-18377202342 / Rh9UCOu2jPscEKa197pE set (commits 1138669, 70b95a7); ad assets via scripts/gen-ads.mjs.
 - [ ] **L2** Winter facts → operator-editable — move the winter copy on `/winter-camping` into a `winter` block in `content.json` + Zod schema + /admin editor, so the owner can state which sites are winter-ready, water-in-freeze, plowing, electric billing, winter rate. Content-store shape change → Critical check-in before build. — source: REPORTS/2026-09-17-seo-winter-triage.md F2
       revisit-when: owner supplies the winter fact sheet
       held: decision

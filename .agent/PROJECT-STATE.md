@@ -5,8 +5,11 @@
 `.agent/REPORTS/2026-09-17-seo-winter-triage.md` (9 findings, all
 dispositioned). Shipped: `/winter-camping` (FAQPage schema), home H1 +
 year-round section, geo coords, Google Ads tag + tel-click conversion wiring
-(inert until `site.ads` ids are set), CSP origins, privacy paragraph. Owner
-inputs now gate the rest: GSC/Bing tokens (B9), Ads ids (L1), GBP paste (L4,
+(inert until `site.ads` ids are set), CSP origins, privacy paragraph. Deployed
+(6f22e83→70b95a7); Google Ads tag + phone-click label live (L1 done); ad
+images at `assets/ads/`; robots.txt cached-redirect loop diagnosed (Cloudflare
+edge cache) — owner purged; a bypass Cache Rule is still recommended. Owner
+inputs now gate the rest: GSC/Bing tokens (B9), GBP paste (L4,
 copy at `docs/google-business-profile.md`), winter fact sheet (L2), rates (B1),
 photos (B11).
 
