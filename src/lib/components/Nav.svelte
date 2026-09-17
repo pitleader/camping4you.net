@@ -6,6 +6,7 @@
 	const links = [
 		{ href: '/', label: 'The Park' },
 		{ href: '/rates', label: 'Rates' },
+		{ href: '/winter-camping', label: 'Winter' },
 		{ href: '/rules', label: 'Rules' },
 		{ href: '/contact', label: 'Contact' }
 	];

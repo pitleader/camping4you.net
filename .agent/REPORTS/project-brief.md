@@ -131,3 +131,6 @@ to guard yet; revisit if a non-owner staff role appears.
 *(Several open gaps — notably auth, content storage, and Telnyx
 registration. The downstream branch step should weigh research-/plan-first
 over straight-to-code.)*
+
+## Triage — 2026-09-17
+Not a findings report: this is the locked vision brief (Phase 0 artifact), cited as an authority surface in PROJECT-STATE §1. **Disposition: dismissed-with-reason** — retained at root as reference; nothing to route.

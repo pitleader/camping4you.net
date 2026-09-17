@@ -1,7 +1,16 @@
 # Project State
 
-**Last updated:** 2026-08-16
-**Active focus:** **M1 + M3 SHIPPED.** Site live at https://camping4you.net.
+**Last updated:** 2026-09-17
+**Active focus:** **SEO / winter push (2026-09-17).** Triage in
+`.agent/REPORTS/2026-09-17-seo-winter-triage.md` (9 findings, all
+dispositioned). Shipped: `/winter-camping` (FAQPage schema), home H1 +
+year-round section, geo coords, Google Ads tag + tel-click conversion wiring
+(inert until `site.ads` ids are set), CSP origins, privacy paragraph. Owner
+inputs now gate the rest: GSC/Bing tokens (B9), Ads ids (L1), GBP paste (L4,
+copy at `docs/google-business-profile.md`), winter fact sheet (L2), rates (B1),
+photos (B11).
+
+**Prior (2026-08-16):** **M1 + M3 SHIPPED.** Site live at https://camping4you.net.
 B7 closed and landed on `main` (98369ce, deployed 2026-08-16): `static/og.png`
 serves 200 and the home page emits `og:image` + `twitter:card
 summary_large_image`, so link unfurls are no longer blank. Same commit ships the

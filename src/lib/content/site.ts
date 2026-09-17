@@ -96,8 +96,28 @@ export const site = {
 	 */
 	ogImage: '/og.png' as string | null,
 
-	/** Lat/long not yet owner-confirmed — omit from the SEO graph until it is. */
-	geo: null as { lat: number; lng: number } | null,
+	/**
+	 * Coordinates of the street address (OpenStreetMap geocode of
+	 * 5805 S Lafayette Ave, house-level match). Emitted as `geo.position` meta
+	 * and schema `geo`. Set to null to omit.
+	 */
+	geo: { lat: 40.6195804, lng: -89.6710667 } as { lat: number; lng: number } | null,
+
+	/**
+	 * Google Ads conversion tracking. Both empty → no Google tag is loaded and
+	 * the page ships no third-party script beyond the Cloudflare beacon.
+	 * `conversionId` is the `AW-XXXXXXXXX` tag id; `callLabel` is the
+	 * conversion label for "click on phone number" (fires on every tel: link).
+	 * Origins the tag needs are allow-listed in `static/_headers` CSP.
+	 */
+	ads: { conversionId: '', callLabel: '' },
+
+	/**
+	 * Year-round operation. The park takes campers through the winter; the
+	 * finer winter facts (which sites, water, plowing, winter rate) are not yet
+	 * owner-confirmed and render as "call the office" on /winter-camping.
+	 */
+	yearRound: true,
 
 	// ── Operator-editable content (from content.json; D-0001) ──
 	tagline: content.tagline,

@@ -145,3 +145,6 @@ The brief's distinguishing requirements are **infrequent edits**, **read-heavy p
 - [Cloudflare Pages — Deploy Hooks](https://developers.cloudflare.com/pages/configuration/deploy-hooks/)
 - [Cloudflare Pages — Git integration](https://developers.cloudflare.com/pages/configuration/git-integration/)
 - [GitHub REST API — Contents (create/update file)](https://docs.github.com/en/rest/repos/contents)
+
+## Triage — 2026-09-17
+Research input for content store (KV/D1/DO/git-backed). **Disposition: queued** → ROADMAP **B2** (fold into ratified DECISIONs before M2/M3 build). Note: M3 shipped 2026-06-27 on a git-backed content store + Entra OIDC (D-0001), so the content-store and OIDC findings are partly superseded by what was built; B2 records the residual. Archived — settled as input, not dropped.

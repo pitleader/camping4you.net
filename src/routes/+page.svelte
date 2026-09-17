@@ -12,7 +12,8 @@
 		Moon,
 		Gauge,
 		MapPin,
-		Mail
+		Mail,
+		Snowflake
 	} from '@lucide/svelte';
 	import { site, formatPrice } from '$lib/content/site';
 	import Seo from '$lib/components/Seo.svelte';
@@ -54,8 +55,8 @@
 </script>
 
 <Seo
-	title="Leisure Oaks Park — RV Park & Campground in Bartonville, IL"
-	description="A quiet, shaded RV park and campground in Bartonville, Illinois. Full hookups, nightly to seasonal stays, and a friendly office. Call to reserve."
+	title="Leisure Oaks Park — Year-Round RV Park & Campground in Bartonville, IL"
+	description="A quiet, shaded RV park and campground in Bartonville, Illinois, open year-round. Full hookups, nightly to seasonal and winter stays, and a friendly office. Call to reserve."
 	path="/"
 	jsonLd={jsonLdScript(graph())}
 />
@@ -93,11 +94,13 @@
 			{site.address.city}, {site.address.region}
 		</p>
 		<h1 class="mt-6 max-w-3xl text-5xl leading-[1.05] font-semibold text-balance sm:text-7xl">
-			Your home away <span class="text-brand-strong">from home</span>.
+			RV park &amp; campground in Bartonville, IL — <span class="text-brand-strong"
+				>open year-round</span
+			>.
 		</h1>
 		<p class="mt-6 max-w-xl text-lg leading-relaxed text-muted text-pretty">
-			Leisure Oaks Park is a quiet, shaded campground for RVs and travelers — full hookups, easy
-			access, and a friendly office that makes every stay simple.
+			{site.tagline}. Leisure Oaks Park is a quiet, shaded campground for RVs and travelers — full
+			hookups, easy access, and a friendly office that makes every stay simple, in every season.
 		</p>
 		<div class="mt-9 flex flex-wrap items-center gap-3">
 			<a
@@ -182,6 +185,36 @@
 				</div>
 			{/each}
 		</div>
+	</div>
+</section>
+
+<!-- ===== Year-round / winter ====================================== -->
+<section id="year-round" class="mx-auto max-w-6xl px-5 py-20 sm:py-24">
+	<div
+		class="grid gap-10 rounded-3xl border border-line-strong bg-surface/60 p-8 sm:p-12 lg:grid-cols-[1.1fr_1fr] lg:items-center"
+	>
+		<div>
+			<p class="flex items-center gap-2 text-sm font-medium text-accent">
+				<Snowflake size={16} /> Open year-round
+			</p>
+			<h2 class="mt-3 text-3xl font-semibold sm:text-4xl">Winter camping, too.</h2>
+			<p class="mt-3 max-w-lg text-muted">
+				Leisure Oaks stays open through the winter. Electric hookups, quiet sites, and monthly
+				winter stays for campers who need a home base near Peoria when the weather turns.
+			</p>
+			<a
+				href="/winter-camping"
+				class="mt-6 inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-on-brand transition-colors hover:bg-brand-strong"
+			>
+				Winter camping details <ArrowRight size={16} />
+			</a>
+		</div>
+		<ul class="grid gap-3 text-sm text-muted sm:grid-cols-2 lg:grid-cols-1">
+			<li class="rounded-2xl border border-line bg-canvas/60 p-4">Open all 12 months</li>
+			<li class="rounded-2xl border border-line bg-canvas/60 p-4">30- and 50-amp electric</li>
+			<li class="rounded-2xl border border-line bg-canvas/60 p-4">Monthly winter stays</li>
+			<li class="rounded-2xl border border-line bg-canvas/60 p-4">Minutes from Peoria and I-474</li>
+		</ul>
 	</div>
 </section>
 

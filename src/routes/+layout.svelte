@@ -17,12 +17,37 @@
 				{ token: site.analytics.cfBeaconToken }
 			)}'></` + `script>`
 		: '';
+
+	// Google Ads conversion tag, rendered only when an Ads id is configured.
+	// The tel: click conversion is wired below via a document-level listener.
+	const ads = site.ads;
+	const gtagTag = ads.conversionId
+		? `<script async src="https://www.googletagmanager.com/gtag/js?id=${ads.conversionId}"></` +
+			`script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${ads.conversionId}');</` +
+			`script>`
+		: '';
+
+	// Every phone-number tap is the site's one conversion. Delegated so it
+	// covers tel: links on every page without touching each anchor.
+	function onTelClick(e: MouseEvent) {
+		if (!ads.conversionId || !ads.callLabel) return;
+		const a = (e.target as Element | null)?.closest('a[href^="tel:"]');
+		if (!a) return;
+		const g = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+		g?.('event', 'conversion', { send_to: `${ads.conversionId}/${ads.callLabel}` });
+	}
 </script>
+
+<svelte:document onclick={onTelClick} />
 
 <svelte:head>
 	{#if beaconTag}
 		<!-- eslint-disable-next-line svelte/no-at-html-tags -- code-controlled beacon tag, no user input -->
 		{@html beaconTag}
+	{/if}
+	{#if gtagTag}
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -- code-controlled Ads tag, no user input -->
+		{@html gtagTag}
 	{/if}
 </svelte:head>
 

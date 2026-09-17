@@ -19,12 +19,13 @@ export const GET: RequestHandler = () => {
 
 > ${site.description}
 
-${site.name} is an RV park and campground in ${site.address.city}, ${site.address.region}, offering nightly, weekly, monthly, and seasonal sites with full hookups.
+${site.name} is an RV park and campground in ${site.address.city}, ${site.address.region}, offering nightly, weekly, monthly, and seasonal sites with full hookups. The park is open year-round, including winter camping and monthly winter stays.
 
 ## Pages
 
 - [Home](${u('/')}): overview of the park.
 - [Rates](${u('/rates')}): stay types and hookups (call for current pricing).
+- [Winter Camping](${u('/winter-camping')}): year-round operation, winter sites, and cold-weather FAQ.
 - [Rules](${u('/rules')}): campground rules and quiet hours.
 - [Contact](${u('/contact')}): phone, email, address, and hours.
 - [Privacy Policy](${u('/privacy')})

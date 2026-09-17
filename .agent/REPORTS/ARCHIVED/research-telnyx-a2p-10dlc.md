@@ -242,3 +242,6 @@ const res = await fetch("https://api.telnyx.com/v2/messages", {
 - [How Much Does 10DLC Registration Cost? (2025) — Telgorithm](https://www.telgorithm.com/news/how-much-does-10dlc-registration-cost-2025-guide-for-isvs)
 
 _Note on verification honesty: per project Principle 13/15, the code snippets and the `timestamp|rawBody` signing string are derived from Telnyx's general v2 webhook docs and Cloudflare's Web Crypto docs but were **not** run against a live Telnyx messaging webhook in this research. Treat §4's verifier and the `autoresponse_type` enumeration as **to-be-tested** against a real inbound event before marking the webhook handler done._
+
+## Triage — 2026-09-17
+Research input for Telnyx A2P 10DLC. **Disposition: queued** → ROADMAP **B2** (fold into ratified DECISIONs before M2/M3 build). Note: M3 shipped 2026-06-27 on a git-backed content store + Entra OIDC (D-0001), so the content-store and OIDC findings are partly superseded by what was built; B2 records the residual. Archived — settled as input, not dropped.

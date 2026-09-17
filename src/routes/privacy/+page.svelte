@@ -65,6 +65,14 @@
 			<li>With service providers necessary to deliver our services</li>
 		</ul>
 
+		<h2>Website analytics and advertising</h2>
+		<p>
+			This website uses Cloudflare Web Analytics, which is cookieless and does not track you across
+			sites. If we run online advertising, the site may also load Google Ads conversion tracking,
+			which records when a visitor who arrived from one of our ads taps our phone number. You can
+			manage ad personalization through Google's ad settings.
+		</p>
+
 		<h2>Data security</h2>
 		<p>We implement reasonable safeguards to protect your personal information.</p>
 	</article>

@@ -9,7 +9,7 @@
 
 <Seo
 	title="Campground Rates | {site.name}"
-	description="Nightly, weekly, monthly, and seasonal RV sites with full hookups at Leisure Oaks Park in Bartonville, IL. Call the office for current rates."
+	description="Nightly, weekly, monthly, seasonal, and winter RV sites with full hookups at Leisure Oaks Park in Bartonville, IL — open year-round. Call the office for current rates."
 	path="/rates"
 />
 
@@ -55,7 +55,8 @@
 	>
 		<p class="flex items-center gap-2.5 text-sm text-muted">
 			<Tent size={18} class="shrink-0 text-accent" />
-			Rates vary by season and availability — call for today's pricing and to reserve your site.
+			Rates vary by season and availability — call for today's pricing and to reserve your site. Open
+			year-round; see <a href="/winter-camping" class="text-brand underline">winter camping</a>.
 		</p>
 		<a
 			href="tel:{site.phone.href}"

@@ -126,3 +126,9 @@ campaign registration for M2; content-store choice — KV/D1/DO — for M3.)
   *and* sends).
 - **Tier B / Tier C**: tier B = build-now scope (M1–M3); tier C = deferred
   reservations/booking.
+
+## Capability inventory addendum (2026-09-17)
+
+- `robots.txt` (`src/routes/robots.txt/`) — allow-all + sitemap pointer; M1.
+- `sms-sample` (`src/routes/sms-sample/`) — A2P compliance page (sample messages); M1, hard-constraint surface.
+- `winter-camping` (`src/routes/winter-camping/`) — year-round / winter landing page with FAQPage schema; 2026-09-17.

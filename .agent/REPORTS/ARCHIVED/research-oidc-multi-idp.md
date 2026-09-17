@@ -352,3 +352,6 @@ identical.
 - [Protecting APIs with JWT Validation — Cloudflare blog](https://blog.cloudflare.com/protecting-apis-with-jwt-validation/)
 </content>
 </invoke>
+
+## Triage — 2026-09-17
+Research input for multi-IdP OIDC. **Disposition: queued** → ROADMAP **B2** (fold into ratified DECISIONs before M2/M3 build). Note: M3 shipped 2026-06-27 on a git-backed content store + Entra OIDC (D-0001), so the content-store and OIDC findings are partly superseded by what was built; B2 records the residual. Archived — settled as input, not dropped.

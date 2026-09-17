@@ -40,7 +40,8 @@ function amenities(): JsonLd[] {
 		'Electric Hookup (30 amp)',
 		'Electric Hookup (50 amp)',
 		'Water & Sewer',
-		'Shaded sites'
+		'Shaded sites',
+		...(site.yearRound ? ['Open year-round', 'Winter camping'] : [])
 	];
 	return features.map((name) => ({
 		'@type': 'LocationFeatureSpecification',
@@ -78,8 +79,11 @@ export function campground(): JsonLd {
 		openingHoursSpecification: openingHours(),
 		amenityFeature: amenities(),
 		parentOrganization: { '@id': ORG_ID }
-		// priceRange + geo omitted: not owner-confirmed (copy-truth).
+		// priceRange omitted: not owner-confirmed (copy-truth).
 	};
+	if (site.geo) {
+		biz.geo = { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng };
+	}
 	return biz;
 }
 
@@ -91,6 +95,43 @@ export function website(): JsonLd {
 		url: site.url,
 		publisher: { '@id': ORG_ID }
 	};
+}
+
+export interface Faq {
+	q: string;
+	a: string;
+}
+
+/** FAQPage entity for a page's Q&A section (answers are plain text). */
+export function faqPage(pagePath: string, faqs: Faq[]): JsonLd {
+	return {
+		'@type': 'FAQPage',
+		'@id': `${site.url}${pagePath}#faq`,
+		mainEntity: faqs.map((f) => ({
+			'@type': 'Question',
+			name: f.q,
+			acceptedAnswer: { '@type': 'Answer', text: f.a }
+		}))
+	};
+}
+
+/** A sub-page's graph: the shared entities plus the page's own WebPage (+ FAQ). */
+export function pageGraph(
+	pagePath: string,
+	opts: { name: string; description: string; faqs?: Faq[] }
+): JsonLd {
+	const webPage: JsonLd = {
+		'@type': 'WebPage',
+		'@id': `${site.url}${pagePath}`,
+		url: `${site.url}${pagePath}`,
+		name: opts.name,
+		description: opts.description,
+		isPartOf: { '@id': WEBSITE_ID },
+		about: { '@id': BUSINESS_ID }
+	};
+	const nodes = [organization(), campground(), website(), webPage];
+	if (opts.faqs?.length) nodes.push(faqPage(pagePath, opts.faqs));
+	return { '@context': 'https://schema.org', '@graph': nodes };
 }
 
 /** The full linked graph for the home page. */

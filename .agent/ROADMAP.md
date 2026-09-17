@@ -14,6 +14,19 @@ scope until a new dated decision.
 
 > Milestone-less one-liner tasks.
 
+- [ ] **L1** Ads conversion IDs — set `site.ads.conversionId` (AW-…) + `callLabel` in `site.ts`; the Google tag + tel-click conversion (layout) and CSP origins (`_headers`) are already wired and emit only when set. — source: REPORTS/2026-09-17-seo-winter-triage.md F9
+      revisit-when: owner creates the Google Ads account and a "phone click" conversion action
+      held: creds
+- [ ] **L2** Winter facts → operator-editable — move the winter copy on `/winter-camping` into a `winter` block in `content.json` + Zod schema + /admin editor, so the owner can state which sites are winter-ready, water-in-freeze, plowing, electric billing, winter rate. Content-store shape change → Critical check-in before build. — source: REPORTS/2026-09-17-seo-winter-triage.md F2
+      revisit-when: owner supplies the winter fact sheet
+      held: decision
+- [ ] **L3** More ranking pages — general FAQ (`FAQPage` builder exists), amenities page, "near Peoria / Pekin / I-474" area page; each doubles as an ad landing page. — source: REPORTS/2026-09-17-seo-winter-triage.md F8
+      revisit-when: winter page indexed and GSC shows query data
+      held: design
+- [ ] **L4** GBP copy pasted — owner pastes `docs/google-business-profile.md` (categories, description, winter post, Q&A, photos) into the Business Profile dashboard. — source: REPORTS/2026-09-17-seo-winter-triage.md F1
+      revisit-when: owner has GBP dashboard access
+      held: creds
+
 ## Backlog
 
 > Future / parked work. M2 and M3 are committed (tier B) but gated on M1 and
@@ -23,7 +36,7 @@ scope until a new dated decision.
       revisit-when: owner supplies real rates/hours/site-count/policy data
       stratum: committed
       held: creds
-- [ ] **B2** Research findings → M2/M3 design — fold `.agent/REPORTS/` research (Telnyx A2P 10DLC, Cloudflare content-store, multi-IdP OIDC) into ratified DECISIONs before building M2/M3. — source: session 2026-06-27 Phase 3
+- [ ] **B2** Research findings → M2/M3 design — fold `.agent/REPORTS/ARCHIVED/research-telnyx-a2p-10dlc.md`, `research-cloudflare-content-store.md`, `research-oidc-multi-idp.md` into ratified DECISIONs before building M2 (M3 already shipped git-backed + Entra per D-0001; record the residual). — source: session 2026-06-27 Phase 3
       revisit-when: research reports land in `.agent/REPORTS/`
       stratum: committed
       held: decision
