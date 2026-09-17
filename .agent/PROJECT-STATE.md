@@ -7,8 +7,10 @@ dispositioned). Shipped: `/winter-camping` (FAQPage schema), home H1 +
 year-round section, geo coords, Google Ads tag + tel-click conversion wiring
 (inert until `site.ads` ids are set), CSP origins, privacy paragraph. Deployed
 (6f22e83→70b95a7); Google Ads tag + phone-click label live (L1 done); ad
-images at `assets/ads/`; robots.txt cached-redirect loop diagnosed (Cloudflare
-edge cache) — owner purged; a bypass Cache Rule is still recommended. Owner
+images at `assets/ads/`; robots.txt cached-redirect loop fixed: Cloudflare Cache Rule
+`bypass-crawler-files` (/robots.txt, /sitemap.xml, /llms.txt) + purge via
+`cf-minter run --profile cache-hygiene` (profile added to cf-minter bfc041d);
+verified 200×5 as Googlebot. Owner
 inputs now gate the rest: GSC/Bing tokens (B9), GBP paste (L4,
 copy at `docs/google-business-profile.md`), winter fact sheet (L2), rates (B1),
 photos (B11).
