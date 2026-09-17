@@ -6,6 +6,8 @@
  *   assets/ads/landscape.png  1200×628  (1.91:1)
  *   assets/ads/square.png     1200×1200 (1:1)
  *   assets/ads/logo.png       1200×1200 (1:1, mark only)
+ *   assets/ads/portrait.png   960×1200  (4:5)
+ *   assets/ads/landscape-2.png 1200×628 (second landscape, different headline)
  *
  * Copy is the winter campaign's pitch; every claim is one the site already makes
  * on /winter-camping. Run: `node scripts/gen-ads.mjs`.
@@ -75,17 +77,21 @@ const scene = (W, H) => `
     <path d="${TREELINE_PATH}" fill="${C.treeline}"/>
   </g>`;
 
-const landscape = () => {
+const landscape = (
+	h1 = 'Open All Winter',
+	h2 = 'RV Sites Near Peoria',
+	sub = '30/50-amp electric · Monthly winter stays · Bartonville, IL'
+) => {
 	const W = 1200,
 		H = 628;
 	return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
   ${scene(W, H)}
   ${mark(80, 64, 2.4)}
   <text x="184" y="121" font-family="${SANS}" font-size="38" font-weight="700" letter-spacing="-0.5" fill="${C.ink}">Leisure Oaks Park</text>
-  <text x="82" y="292" font-family="${SERIF}" font-size="72" font-weight="700" letter-spacing="-1" fill="${C.ink}">${esc('Open All Winter')}</text>
-  <text x="82" y="372" font-family="${SERIF}" font-size="72" font-weight="700" letter-spacing="-1" fill="${C.brandStrong}">${esc('RV Sites Near Peoria')}</text>
+  <text x="82" y="292" font-family="${SERIF}" font-size="72" font-weight="700" letter-spacing="-1" fill="${C.ink}">${esc(h1)}</text>
+  <text x="82" y="372" font-family="${SERIF}" font-size="72" font-weight="700" letter-spacing="-1" fill="${C.brandStrong}">${esc(h2)}</text>
   <rect x="82" y="418" width="200" height="6" rx="3" fill="url(#rule)"/>
-  <text x="82" y="472" font-family="${SANS}" font-size="27" font-weight="600" fill="${C.pine100}">${esc('30/50-amp electric · Monthly winter stays · Bartonville, IL')}</text>
+  <text x="82" y="472" font-family="${SANS}" font-size="27" font-weight="600" fill="${C.pine100}">${esc(sub)}</text>
 </svg>`;
 };
 
@@ -105,6 +111,22 @@ const square = () => {
 </svg>`;
 };
 
+const portrait = () => {
+	const W = 960,
+		H = 1200;
+	return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+  ${scene(W, H)}
+  ${mark(80, 88, 3)}
+  <text x="206" y="158" font-family="${SANS}" font-size="42" font-weight="700" letter-spacing="-0.5" fill="${C.ink}">Leisure Oaks Park</text>
+  <text x="80" y="560" font-family="${SERIF}" font-size="96" font-weight="700" letter-spacing="-2" fill="${C.ink}">${esc('Open All')}</text>
+  <text x="80" y="668" font-family="${SERIF}" font-size="96" font-weight="700" letter-spacing="-2" fill="${C.ink}">${esc('Winter.')}</text>
+  <text x="80" y="770" font-family="${SERIF}" font-size="68" font-weight="700" letter-spacing="-1.5" fill="${C.brandStrong}">${esc('RV Sites Near Peoria')}</text>
+  <rect x="80" y="822" width="200" height="6" rx="3" fill="url(#rule)"/>
+  <text x="80" y="886" font-family="${SANS}" font-size="32" font-weight="600" fill="${C.pine100}">${esc('30/50-amp electric · Monthly stays')}</text>
+  <text x="80" y="934" font-family="${SANS}" font-size="32" font-weight="600" fill="${C.pine100}">${esc('Bartonville, Illinois')}</text>
+</svg>`;
+};
+
 const logo = () => {
 	const W = 1200;
 	return `<svg width="${W}" height="${W}" viewBox="0 0 ${W} ${W}" xmlns="http://www.w3.org/2000/svg">
@@ -117,10 +139,23 @@ const out = join(repoRoot, 'assets/ads');
 await mkdir(out, { recursive: true });
 for (const [name, svg] of [
 	['landscape.png', landscape()],
+	[
+		'landscape-2.png',
+		landscape(
+			'Year-Round RV Park',
+			'Minutes From Peoria',
+			'Nightly · Weekly · Monthly · Seasonal · Bartonville, IL'
+		)
+	],
 	['square.png', square()],
+	['portrait.png', portrait()],
 	['logo.png', logo()]
 ]) {
-	const size = name === 'landscape.png' ? [1200, 628] : [1200, 1200];
+	const size = name.startsWith('landscape')
+		? [1200, 628]
+		: name === 'portrait.png'
+			? [960, 1200]
+			: [1200, 1200];
 	const png = await sharp(Buffer.from(svg), { density: 144 })
 		.resize(...size)
 		.png({ compressionLevel: 9 })
