@@ -1,5 +1,5 @@
-<!-- GENERATED-BY: publish.sh on 2026-08-16T12:07:09Z [build: slim; include: yes] -->
-<!-- Sources: /Users/stephen/Projects/dotagent/publish/../personal (personal) + /Users/stephen/Projects/dotagent/publish (manual) -->
+<!-- GENERATED-BY: publish.sh on 2026-09-17T17:06:18Z [build: slim; include: yes] -->
+<!-- Sources: /Users/stephen/.dotagent/publish/../personal (personal) + /Users/stephen/.dotagent/publish (manual) -->
 <!-- Do not hand-edit. Edit those files and re-run publish.sh. -->
 
 # Project Bootstrap
@@ -10,6 +10,7 @@ operating manual).
 
 **Also read these per-project files if they exist in the working directory:**
 
+- `.agent/DIRECTION.md` — **the staircase: where this is going, in order.** Read first; it is the frame the rest is read inside.
 - `.agent/PROJECT-SCOPE.md` — active milestone, hard constraints, out-of-scope, criticality rubric.
 - `.agent/PROJECT-STATE.md` — current state and open check-ins.
 - `.agent/CHECKINS/` — any files at this directory's root.
@@ -59,6 +60,11 @@ These principles govern how things are designed and reasoned about. They do not 
 22. **Rigor proportional to stakes.** Every other principle here pushes toward *more* — more anticipation (#2), completeness (#4), durability (#19), authorization (#18), preflight (#21) — and none of them caps. This is the governor: the *grade* of rigor is set by the consequence of getting it wrong, not by the ceiling the others can reach. The test is the "which lens" question — **will something durable have to conform to this, or is it a one-off I can redo for free?** Conform → full rigor (decision record, engine, preflight, ratification). One-off/easily-reversed → the minimum that ships, no ceremony. Right-sizing *down* is #1 applied to effort itself (rigor is an axis; don't build for a case-space that has one case), and it promotes #19's MVP-cadence override from a per-project opt-in to a standing default. It never licenses skipping rigor on load-bearing work — understating stakes to dodge the work is the same failure in the other direction; measured honestly, the stakes decide.
 
 23. **Existence is checked before construction.** Before standing up an engine, sweep what already exists **outside** the repo — OSS project, commercial product, vendor primitive, protocol — and cite what the sweep found in the artifact proposing the build, including an explicit "nothing found". The inward prior-art sweep aimed outward: the record answers what we already ruled, this answers what the world already built. **Rebuild must beat adopt on stated grounds** — fit against the real case-space (#4), lock-in, blast radius, lifetime maintenance — never by nobody asking; "ours would be cleaner" is a preference, not a ground. Adopt isn't automatic either: a badly-fitting dependency is its own long cost, so the comparison is stated, not assumed in either direction. Governed by #22 — a one-off doesn't earn the sweep, an engine future work must conform to always does. Specializes #15/#20 one step outward: those verify a source, or the surface of a vendor already chosen; this asks whether a vendor should have been chosen at all.
+
+24. **A dashboard is an instrument, not a page.** A surface whose job is "the state of N things" is built to a declared standard with one home (the pairing layer), never to framework defaults. **What is shared is the standard, never the asset** — the exemplar is read for the care it took, not harvested for its stylesheet; cross-project reuse of a token file is a separate per-case question, and answering it by default is how two projects end up wearing one face. Stack-free invariants, each falsifiable on sight: the row is the unit (fixed columns; a card is for one thing, never a list); severity sorts and the verdict rides the row's own edge; the absent case is a row (join from the inventory, never the events; what fits no row gets a section, never vanishes); the cause sits beside the thing, as the real error string; one verdict vocabulary, one component, and a foreign verdict model passes its own tone. Tokens, readout typography and reflow are the standard's and the stack's, not the principle's. Governed by #22 (a terminal print doesn't earn it; a surface a technician lives in does); specializes #8 at the surface a human reads; never a licence to gold-plate every form.
+
+25. **Closure is declared, not discovered.** Every unit of work — task, capability, milestone, engine, investigation — names the fact that *ends* it before it starts, and that fact is the only thing that ends it. Discovering more work does not move the finish; it produces a new named unit or a dated amendment naming its relationship to the prior — never a silent raise, because a target that recedes as you approach it cannot be reported against honestly or felt as progress. The failure it prevents is *asymptotic approach*: rigor without a declared end produces indefinite motion while every surface reads healthy (commits land, tasks close, fractions advance). Closure is an axis, not the residue of #9's rigor. (Which units earn a declared exit is #22's call; #9's named gap and #10's revisit-when are it at claim/exclusion scope; a milestone `Exit:` and capability `Demo:` at theirs. Distinct from #13, which governs what evidence closes a unit; this governs what the unit was allowed to require.)
+26. **Conservation over agreement.** A *derived* thing (a queue from a board, a lint from a codebase, a test surface from a glob, an index from a corpus) is verified by conservation against a source the derivation does not control — every input reaches an output or is named as dropped — never by agreement with something built from the same reading: a verifier that shares its subject's recognizer can only confirm the two agree about what to ignore. Named 2026-08-23 when a rendered queue read "up to date" for weeks over 24 tasks under unrecognised headings, missing from the queue, the checker and every denominator because all three came from one parse. Since fired in billing, vendor counts, a reference resolver and a test runner. Ask what the check would fail on: if "two things I derived the same way disagree", a conservation check is still owed, against the rawest source available. (Specializes #13 to the derived case and #21 to the checker; the instrument form is in #24; distinct from #15, which verifies a cite you were handed.)
 
 
 <!-- ───── INTERACTION-STYLE.md ───── -->
@@ -276,6 +282,43 @@ These apply across all projects unless overridden in a `PROJECT-SCOPE.md`.
     rule 12's no-inferred-state beyond tempo to emotion, in both
     directions. Plain courtesy ("sorry — my miss") is fine; affect-as-
     cause is not.
+
+15. **Hand it filled in, not templated.** Whatever I already know goes
+    *into* the artifact before it reaches you — paths, repo names, IDs,
+    branch names, ports, dates, the values sitting in my context right
+    now. You supply only what **only you can supply**: a secret, a
+    preference, a judgment call. Never a value I could have looked up.
+    A script with `<YOUR_PATH_HERE>` in the body, a PR template with
+    sections left blank, a config with `TODO` — that's my work handed
+    back to you wearing a progress report.
+
+    - **One value → inline prefix.** When exactly one input is genuinely
+      yours, shape it as a single-token edit at the front of the
+      one-liner: `VAL=123 bash /tmp/thing.sh` — never "open the script
+      and set VAL on line 12."
+    - **Declared at the top, refused by name.** Scripts take inputs as
+      named vars in a header block, defaulted where a default is honest,
+      and fail with a named message when one is missing
+      (`: "${VAL:?set VAL=<the thing> and re-run}"`) — never wheel-spin,
+      never silently run on a placeholder. (Principle 21 pointed at the
+      handoff: preconditions declared in one place, a missing one
+      refusing by name at the boundary.)
+    - **Several values → a filled block, not a chain of prefixes.** If
+      more than ~2 inputs are genuinely yours, don't hand me
+      `A=1 B=2 C=3 bash ...`; put a `# --- set these ---` block at the
+      top of the file with my best guess filled in for each and a
+      one-line comment on what it's for, so I'm *correcting* values, not
+      authoring them.
+    - **Not just shell.** PR bodies, commit messages, config files, JSON
+      payloads, issue templates — same rule: delivered filled, with my
+      guesses in place and the genuinely-yours fields marked.
+
+    (#8 says the handoff is a command, not prose; #9 says it doesn't
+    wrap; this says it's *complete on arrival*. One family — the handoff
+    is executable as delivered. Principle 13: a template with blanks is
+    reported-done, not demonstrable-done; Principle 21 supplies the
+    mechanism — inputs declared in one place, missing ones refused by
+    name.)
 
 
 <!-- ───── included content (pairings) ───── -->
@@ -1217,14 +1260,16 @@ Conflicts: project scope > pairings > principles > manual defaults. Name the con
 
 ## Session start
 
-1. Read `PROJECT-SCOPE.md` **down to the `## Reference` marker only** — the session-read core (active milestone, hard constraints, out-of-scope, rubric, check-in mode); the reference tail below is **not read at session start** (D-0072 precedent), open on demand. If it names pairings, load them via `dotagent_get_pairing`.
-2. Read `.agent/PROJECT-STATE.md` if it exists — the **current state**. Rotated historical narrative lives in `.agent/PROJECT-STATE-HISTORY.md`, **not read at session start** (D-0072).
-3. Glance at `.agent/CHECKINS/` for pending questions.
-4. Glance at `.agent/REPORTS/` root — undispositioned reports are open work (a dispositioned report is archived to `ARCHIVED/`; the root directory is the inbox).
-5. Glance at `.agent/DECISIONS/RECENT.md` — derived session window (newest ~15 rows + all `Status: Proposed`), engine-emitted on every decision-log write; full index `README.md` on demand (canonical, audit-owned).
-6. Glance at `.agent/IDEAS/` if present — raw pre-decision idea inbox, one file per idea (background, not a to-do).
-7. Read `.agent/ROADMAP.md` if present — the **active frontier** (Active/Loose/Backlog) of the work-structure tree (milestone → task + `depends:` edges, per D-0050); the active milestone's task tree is the plan. `.agent/TODO.md` is its **derived** ready-frontier (the live "work the queue" obligations — `## Now`, top-down); never hand-edit TODO, it regenerates from ROADMAP via `roadmap-render.sh`. Shipped history is in `.agent/ROADMAP-SHIPPED.md`, **not read at start** (the renderer still reads it for done-resolution).
-8. Surface contradictions between the request and scope before starting.
+0. **Drift is triaged before feature work (D-0122).** Read the drift line injected at boot (`drift-check/session-boot.sh`). Every material finding gets a disposition *in the first exchange* — **fix-now**, **queue** (a cited ROADMAP task), or **dismiss-with-reason** — and the counts are reported to the owner up front, not at session end. A standing backlog is boarded as one task, never carried silently. **Absence of a drift line is a defect, not a clean project** — if none appeared in an `.agent/` project, run `drift-check.sh --target <root> --material` by hand and repair the hook before trusting the silence. (The session-end sweep still runs the full suite; that refreshes the snapshot for the next boot. The *obligation* lives here, where it can be acted on.)
+1. Read `.agent/DIRECTION.md` if it exists — **the staircase: where this project is going, in order, at project grain.** First, before scope, because it is the frame the rest is read inside. It is `class: current` (AGENT-SURFACES.txt): it must be true *now*, carries a `restated: YYYY-MM-DD` line, and `current-surface-stale.sh` reports it when it stops being true. Changed by **edit** — a step that changes is updated in place, never superseded; changing direction is steering, not a reversal. Absent is fine (not every project has one yet); **stale is not** — a staircase that no longer describes the work is worse than none, because it is read first.
+2. Read `PROJECT-SCOPE.md` **down to the `## Reference` marker only** — the session-read core (active milestone, hard constraints, out-of-scope, rubric, check-in mode); the reference tail below is **not read at session start** (D-0072 precedent), open on demand. If it names pairings, load them via `dotagent_get_pairing`.
+3. Read `.agent/PROJECT-STATE.md` if it exists — the **current state**. Rotated historical narrative lives in `.agent/PROJECT-STATE-HISTORY.md`, **not read at session start** (D-0072).
+4. Glance at `.agent/CHECKINS/` for pending questions.
+5. Glance at `.agent/REPORTS/` root — undispositioned reports are open work (a dispositioned report is archived to `ARCHIVED/`; the root directory is the inbox).
+6. Glance at `.agent/DECISIONS/RECENT.md` — derived session window (newest ~15 rows + all `Status: Proposed`), engine-emitted on every decision-log write; full index `README.md` on demand (canonical, audit-owned).
+7. Glance at `.agent/IDEAS/` if present — raw pre-decision idea inbox, one file per idea (background, not a to-do).
+8. Read `.agent/ROADMAP.md` if present — the **active frontier** (Active/Loose/Backlog) of the work-structure tree (milestone → task + `depends:` edges, per D-0050); the active milestone's task tree is the plan. `.agent/TODO.md` is its **derived** ready-frontier (the live "work the queue" obligations — `## Now`, top-down); never hand-edit TODO, it regenerates from ROADMAP via `roadmap-render.sh`. Shipped history is in `.agent/ROADMAP-SHIPPED.md`, **not read at start** (the renderer still reads it for done-resolution).
+9. Surface contradictions between the request and scope before starting.
 
 ## Pull the full canon for consequential work
 
@@ -1253,7 +1298,11 @@ Reported work is an input, not evidence (Principle 13).
 - Before marking done: point to the file, line, or observable behavior.
 - Subagent summaries describe intent, not outcome — verify at source.
 - A green claim names the real artifact the real path consumes (not a stand-in) and shows *that* artifact exercised on that path — a check that skips the failing path is false confidence, not evidence.
-- **Premise gate at dispatch:** before briefing a lane on a task line, verify that line's load-bearing premise **at source** (for "build X", that X doesn't already exist) and cite what was verified in the brief. **The premise is not only factual — it is also whether the thing is already ruled:** name the surface the task touches and check what governs it, because a task can be perfectly accurate about the code and still contradict a Binding decision (2026-08-10: a brief added provider flags a decision had ruled out of that layer three weeks earlier; the flags genuinely didn't exist, so every factual check passed). That is D-0113's question asked one step earlier. A board line is a claim *about* the code; a stale one has already produced briefs ordering lanes to rebuild shipped, tested code — Principle 18 triggered by a stale board rather than a human, and invisible to the pre-commit removal gate, which reads diffs, not briefs. A false premise goes back to the board, not into the brief (D-0106 part 4).
+- **A pre-existing-failure claim is verified at the base, never at the tip.** To claim a failure is not yours, run the check at the commit your work branched from (`git archive <base> | tar -x -C <scratch>`, run there); a tip that already contains your change cannot tell "already broken" from "just broken by me", and it is the comfortable answer. 2026-09-10: a lane and the seat both "verified on main" a main that already held the suspect landing, and a real regression sat there eight hours. D-0121's shared-blind-spot rule, applied to time.
+- **Invoke the project's declared runner, never a hand-assembled equivalent.** A runner is its flags — a hand-rolled invocation is a different artifact from the one CI runs. 2026-09-10: `node --test` without `--experimental-test-module-mocks` produced a false red on suites the project's `npm run test:unit` showed 35/35 green, one step from sending a correct lane back to fix nothing. The declared runner is `PROJECT-SCOPE.md` `## Verification` (D-0129) / `package.json` scripts.
+- **A monitoring surface whose failure mode is silence must be built so that silence is impossible (D-0122).** A check that can be killed, time out, or crash into a bare `exit 0` has a failure mode that reads as all-clear — and it will fail exactly there, because every other mode is visible. The boot drift hook was correct in every respect except that it could not run inside its budget on the largest corpus, and nothing anywhere said so: it reported nothing, for weeks, and nothing read as clean. Build such surfaces to *always emit* — a count, an explicit UNKNOWN, or an explicit FAILED — and to *never compute on the hot path* (report a snapshot; recompute elsewhere). Principle 21's named-refusal rule, applied to the thing doing the checking.
+- **A check that shares its subject's blind spot is not evidence (D-0121).** A verifier derived from its subject's own recognizer cannot detect that recognizer's failures — it can only confirm the two agree about what to ignore. So a *derived* surface is verified by **conservation** against a source the derivation does not control (does every input reach an output, or get named as deliberately dropped?), never by agreement between two products of the same parse. Instance: a queue rendered from a board reported "up to date" for weeks while 24 open tasks sat under headings the parser did not recognise — absent from the queue, from the checker, and from every denominator, because all three were built from that one parse.
+- **Premise gate at dispatch:** before briefing a lane on a task line, verify that line's load-bearing premise **at source** (for "build X", that X doesn't already exist) and cite what was verified in the brief. **The premise is not only factual — it is also whether the thing is already ruled:** name the surface the task touches and check what governs it, because a task can be perfectly accurate about the code and still contradict a Binding decision (2026-08-10: a brief added provider flags a decision had ruled out of that layer three weeks earlier; the flags genuinely didn't exist, so every factual check passed). That is D-0113's question asked one step earlier. When the governing decision is `Grade: working`, the premise includes whether the position is still held — brief "verify the position still holds — is its `Revisit-when:` unmet?" before "verify the code" (D-0123 part 4). A board line is a claim *about* the code; a stale one has already produced briefs ordering lanes to rebuild shipped, tested code — Principle 18 triggered by a stale board rather than a human, and invisible to the pre-commit removal gate, which reads diffs, not briefs. A false premise goes back to the board, not into the brief (D-0106 part 4).
 - 2nd identical failure, no information gain: stop theorizing, instrument the real path (Principle 17).
 - Milestone completion requires demonstrating definition-of-done, not a roll-up.
 - **No join closes on a roll-up (D-0114).** The anti-roll-up rule above is the milestone-scoped case of a general one: N lanes each green against its own brief is a claim about N briefs, not about the assembled result. Every join demonstrates the thing itself — the `Exit:` fact or the observable behavior — because a lane's reported greenness is an input, not evidence (Principle 13).

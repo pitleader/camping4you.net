@@ -85,6 +85,12 @@ Otherwise, canonical priority order holds.
 - Additive tests, comment fixes.
 - New brochure content within existing templates.
 
+## Verification
+
+- **After a change:** `npm run check && npm run lint && npm test`
+- **Before landing:** `npm run build` (prerender must succeed; grep the output for the artifact you changed — title, JSON-LD node, sitemap entry)
+- **Not run by hand:** the Cloudflare Pages deploy + IndexNow ping (CI on push to `main`); live-URL probes are a post-deploy spot-check, not a gate.
+
 ## Default check-in mode
 
 Hybrid, per the operating manual.

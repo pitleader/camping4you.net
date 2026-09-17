@@ -38,7 +38,7 @@ scope until a new dated decision.
       revisit-when: research reports land in `.agent/REPORTS/`
       stratum: committed
       held: decision
-- [ ] **B11** Owner imagery for the two declared photo slots — drop Unsplash+ originals into `assets/source/` (`og-backdrop.*`, `texture-rates.*`) and run `npm run assets` + `npm run img`. The pipeline, the slot declarations, and the picking brief are shipped; both slots are optional and the site is complete and green while empty. Non-representational imagery only, and none of it may go on the Google Business Profile. — source: session 2026-08-10 — verified: 2026-08-16
+- [ ] **B11** Owner imagery for the two declared photo slots — drop Unsplash+ originals into `assets/source/` (`og-backdrop.*`, `texture-rates.*`) and run `npm run assets` + `npm run img`. The pipeline, the slot declarations, and the picking brief are shipped; both slots are optional and the site is complete and green while empty. Non-representational imagery only, and none of it may go on the Google Business Profile. — source: session 2026-08-10 — verified: 2026-09-17
       revisit-when: owner downloads originals from their Unsplash+ account
       stratum: committed
       held: creds
