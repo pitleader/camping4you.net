@@ -34,7 +34,11 @@
 		const a = (e.target as Element | null)?.closest('a[href^="tel:"]');
 		if (!a) return;
 		const g = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
-		g?.('event', 'conversion', { send_to: `${ads.conversionId}/${ads.callLabel}` });
+		g?.('event', 'conversion', {
+			send_to: `${ads.conversionId}/${ads.callLabel}`,
+			value: 1.0,
+			currency: 'USD'
+		});
 	}
 </script>
 
