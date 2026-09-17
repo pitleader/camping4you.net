@@ -22,9 +22,8 @@ scope until a new dated decision.
 - [ ] **L3** More ranking pages — general FAQ (`FAQPage` builder exists), amenities page, "near Peoria / Pekin / I-474" area page; each doubles as an ad landing page. — source: REPORTS/2026-09-17-seo-winter-triage.md F8
       revisit-when: winter page indexed and GSC shows query data
       held: design
-- [ ] **L4** GBP copy pasted — owner pastes `docs/google-business-profile.md` (categories, description, winter post, Q&A, photos) into the Business Profile dashboard. — source: REPORTS/2026-09-17-seo-winter-triage.md F1
-      revisit-when: owner has GBP dashboard access
-      held: creds
+- [x] **L4** GBP copy pasted — owner pastes `docs/google-business-profile.md` (categories, description, winter post, Q&A, photos) into the Business Profile dashboard. — source: REPORTS/2026-09-17-seo-winter-triage.md F1
+      done: 2026-09-17 — categories, description, hours, cover, winter post (pending Google review) applied. Residual: Q&A seeding on the public Maps listing; real photos (B11).
 
 ## Backlog
 
