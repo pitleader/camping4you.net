@@ -33,15 +33,22 @@ Mon–Sat 8:00 AM – 6:00 PM (matches the site). Set special hours for holidays
 
 **Open all winter — RV sites available**
 Leisure Oaks Park stays open through the winter. 30/50-amp electric, quiet
-shaded sites, and monthly winter stays near Peoria. Call (309) 697-4871 for
-availability and today's winter pricing.
-Button: _Call now_ → (309) 697-4871
+shaded sites, and monthly winter stays near Peoria. Call the office for
+availability and winter rates.
+Button: _Call now_ (uses the profile's verified number — do NOT type the
+number into the post body)
 Link: https://camping4you.net/winter-camping
+
+> **Policy (verified 2026-09-17, support.google.com/business/answer/7213077):**
+> "We do not allow your post content to include a phone number." The
+> 2026-09-17 post was rejected (Routing ID DPNB) for exactly this; posting was
+> disabled on the profile. Phone numbers belong only in the Call-now button.
+> Same rule applies to the Q&A answers below — write "call the office".
 
 ## Q&A — seed these yourself (owner can post both question and answer)
 
 1. **Are you open in the winter?** Yes — Leisure Oaks Park is open year-round.
-   Call (309) 697-4871 for winter availability.
+   Call the office for winter availability.
 2. **Do you have full hookups?** Sites have 30- and 50-amp electric with water
    and sewer. Ask the office which sites are set up for cold-weather stays.
 3. **Can I stay monthly?** Yes — nightly, weekly, monthly, and seasonal stays,

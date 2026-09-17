@@ -16,7 +16,13 @@ const auth: Handle = async ({ event, resolve }) => {
 			redirect(303, `/admin/login?from=${encodeURIComponent(pathname)}`);
 		}
 	}
-	return resolve(event);
+	// Preload the two latin font files alongside js/css so the hero's display
+	// face is fetched before the stylesheet discovers it (the font swap was the
+	// home LCP event). Other unicode-range subsets stay lazy — the page is English.
+	return resolve(event, {
+		preload: ({ type, path }) =>
+			type === 'js' || type === 'css' || (type === 'font' && /-latin-wght-normal\./.test(path))
+	});
 };
 
 /** Security headers on every response (static pages also get them via _headers). */

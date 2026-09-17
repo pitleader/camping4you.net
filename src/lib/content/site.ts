@@ -86,7 +86,7 @@ export const site = {
 	 * Cloudflare Web Analytics (cookieless) site tag. CSP allow-lists
 	 * `static.cloudflareinsights.com`. Empty → not rendered.
 	 */
-	analytics: { cfBeaconToken: '6e2215c17c89425ca0e3ae7ee775748d' },
+	analytics: { cfBeaconToken: 'ce4196c4350a441397782dba81b62b6b' },
 
 	/**
 	 * Share image (1200×630), composed by `npm run assets` from this file's own
