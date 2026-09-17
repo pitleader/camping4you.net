@@ -110,7 +110,7 @@ export const site = {
 	 * conversion label for "click on phone number" (fires on every tel: link).
 	 * Origins the tag needs are allow-listed in `static/_headers` CSP.
 	 */
-	ads: { conversionId: '', callLabel: '' },
+	ads: { conversionId: 'AW-18377202342', callLabel: '' },
 
 	/**
 	 * Year-round operation. The park takes campers through the winter; the
