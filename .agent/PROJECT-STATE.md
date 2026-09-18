@@ -105,6 +105,8 @@ into ratified DECISIONs (B2) — recommended picks: content-store **git-backed**
 auth **Cloudflare Access**, SMS **Telnyx Low-Volume-Mixed**; (3) owner inputs
 unblock B1 content-fill and Telnyx registration.
 
+Boot-size note (2026-09-18): project `CLAUDE.md` is now the pointer-only build (~2.5 KB, was ~1,390 lines inlining the June canon); the full canon loads once from `~/.claude/CLAUDE.md` (83 KB, `build: full`) and pairings resolve on demand via `dotagent_get_pairing` (verified with `sveltekit`).
+
 ---
 
 ## 6. Recent milestones
