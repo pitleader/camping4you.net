@@ -2,16 +2,18 @@
 	import { Snowflake, Phone, Plug, CalendarDays, Trees, ArrowRight, Mail } from '@lucide/svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
 	import Seo from '$lib/components/Seo.svelte';
-	import { site, formatPrice } from '$lib/content/site';
+	import { site } from '$lib/content/site';
 	import { pageGraph, jsonLdScript, type Faq } from '$lib/seo/structured-data';
 
 	const path = '/winter-camping';
 	const title = `Winter Camping & Year-Round RV Sites in Bartonville, IL | ${site.name}`;
 	const description = `${site.name} is open year-round. Winter campsites with electric hookups near Peoria, Illinois — monthly winter stays welcome. Call the office to reserve.`;
 
-	// Copy-truth: only facts the owner has confirmed are stated outright
-	// (year-round operation, 30/50-amp electric, water & sewer, monthly stays).
-	// Everything winter-specific that is not yet confirmed says "call the office".
+	// Copy-truth: only facts the owner has confirmed are stated outright —
+	// year-round operation, a subset of winter-capable sites (count unconfirmed),
+	// water from underground spigots (heated hose required), sewer, bathhouse and
+	// laundry open weather permitting, gravel roads with limited plowing, metered
+	// electric. Site availability and winter rates stay "call the office".
 	const askOffice = 'Call the office';
 
 	const highlights = [
@@ -23,16 +25,15 @@
 		{
 			icon: Plug,
 			title: '30- and 50-amp electric',
-			body: 'Run your furnace, heated hoses, and tank heaters. Ask the office which sites are set up for winter stays.'
+			body: 'Run your furnace, heated hose, and tank heaters. Electric is metered, so you pay for what you use.'
 		},
 		{
 			icon: Trees,
 			title: 'Quiet and close to Peoria',
-			body: 'A calm park minutes from Peoria, Bartonville, and the I-474 corridor — handy for work assignments and long stays.'
+			body: 'A calm park minutes from Peoria, Bartonville, and the I-474 corridor — handy for workcampers, work assignments, and long stays.'
 		}
 	];
 
-	const monthly = site.rates.categories.find((c) => c.name === 'Monthly');
 
 	const faqs: Faq[] = [
 		{
@@ -41,15 +42,27 @@
 		},
 		{
 			q: 'Do you have winter campsites available?',
-			a: `Yes, we take winter campers. Which sites are set up for cold-weather stays can change through the season, so call the office at ${site.phone.display} for current availability.`
+			a: `Yes, but not every site is winter-capable — a limited set of sites is set up for cold-weather stays, so call the office at ${site.phone.display} for current availability.`
 		},
 		{
 			q: 'Are water and sewer available in winter?',
-			a: `Water and sewer are included at our sites in season. For winter hookups — including whether water is available at your site during hard freezes — call the office before you arrive so we can match you to the right site.`
+			a: `Yes. Sewer is available all winter, and water comes from underground spigots — bring a heated supply hose to keep your line from freezing.`
+		},
+		{
+			q: 'Are the bathhouse and laundry open in winter?',
+			a: `Yes, weather permitting.`
+		},
+		{
+			q: 'Are the roads plowed?',
+			a: `Park roads are gravel, so snow clearing is limited. Plan for winter road conditions, especially after a heavy snow.`
+		},
+		{
+			q: 'Is electric included on a winter stay?',
+			a: `Electric is metered on every site, all year, so you pay for what you use. We offer 30- and 50-amp service.`
 		},
 		{
 			q: 'How much is a monthly winter stay?',
-			a: `Monthly rates: ${formatPrice(monthly?.price ?? null, askOffice)}. Rates vary by season and hookup, so call ${site.phone.display} for today's winter pricing.`
+			a: `Winter rates depend on the length of your rig and your stay, so call ${site.phone.display} for a quote. Electric is metered separately.`
 		},
 		{
 			q: 'Do you offer long-term or year-round stays?',
@@ -94,15 +107,14 @@
 	<div class="mx-auto max-w-4xl px-5 py-14 sm:py-16">
 		<h2 class="text-2xl font-semibold sm:text-3xl">What to know before a winter stay</h2>
 		<p class="mt-3 max-w-2xl text-muted">
-			Winter camping in central Illinois means real cold. A few things worth a quick call to the
-			office before you book:
+			Winter camping in central Illinois means real cold. Here's how the park runs in winter:
 		</p>
 		<dl class="mt-8 grid gap-4 sm:grid-cols-2">
-			{#each [['Winter-ready sites', 'Which sites are set up for cold-weather stays'], ['Water in a freeze', 'Whether water is on at your site during hard freezes'], ['Electric on monthly stays', 'How electric is handled on a monthly winter stay'], ['Winter rates', "Today's pricing for a winter month"]] as [label, what] (label)}
+			{#each [['Winter-ready sites', 'Only some sites are winter-capable', askOffice], ['Water', 'Underground spigots — bring a heated supply hose', null], ['Sewer, bathhouse, laundry', 'Sewer all winter; bathhouse and laundry open weather permitting', null], ['Roads', 'Gravel roads, limited plowing', null], ['Electric', 'Metered — you pay for what you use', null], ['Winter rates', 'Based on rig length and length of stay', askOffice]] as [label, what, cta] (label)}
 				<div class="rounded-2xl border border-line bg-canvas/60 p-5">
 					<dt class="font-display text-lg font-semibold">{label}</dt>
 					<dd class="mt-1 text-sm text-muted">
-						{what} — <span class="text-brand">{askOffice}</span>
+						{what}{#if cta} — <span class="text-brand">{cta}</span>{/if}
 					</dd>
 				</div>
 			{/each}
