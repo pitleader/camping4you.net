@@ -42,7 +42,8 @@ scope until a new dated decision.
       revisit-when: owner downloads originals from their Unsplash+ account
       stratum: committed
       held: creds
-- [ ] **B9** Search-engine verification — add Google Search Console + Bing Webmaster tokens to `site.ts` `verification` (`<Seo>` emits them when set); confirm GSC/Bing ownership. IndexNow already pings on deploy. — source: session 2026-06-27 (probe)
+- [x] **B9** Search-engine verification — add Google Search Console + Bing Webmaster tokens to `site.ts` `verification` (`<Seo>` emits them when set); confirm GSC/Bing ownership. IndexNow already pings on deploy. — source: session 2026-06-27 (probe)
+      done: owner confirmed GSC verified (2026-09-21; predates this board line — verified out-of-band, not via site.ts token).
       revisit-when: owner provides GSC + Bing verification tokens
       stratum: committed
       held: creds
