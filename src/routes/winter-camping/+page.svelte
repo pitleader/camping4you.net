@@ -34,7 +34,6 @@
 		}
 	];
 
-
 	const faqs: Faq[] = [
 		{
 			q: 'Is Leisure Oaks Park open in the winter?',
@@ -114,7 +113,8 @@
 				<div class="rounded-2xl border border-line bg-canvas/60 p-5">
 					<dt class="font-display text-lg font-semibold">{label}</dt>
 					<dd class="mt-1 text-sm text-muted">
-						{what}{#if cta} — <span class="text-brand">{cta}</span>{/if}
+						{what}{#if cta}
+							— <span class="text-brand">{cta}</span>{/if}
 					</dd>
 				</div>
 			{/each}
