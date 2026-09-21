@@ -213,7 +213,9 @@
 			<li class="rounded-2xl border border-line bg-canvas/60 p-4">Open all 12 months</li>
 			<li class="rounded-2xl border border-line bg-canvas/60 p-4">30- and 50-amp electric</li>
 			<li class="rounded-2xl border border-line bg-canvas/60 p-4">Monthly winter stays</li>
-			<li class="rounded-2xl border border-line bg-canvas/60 p-4">Minutes from Peoria and I-474</li>
+			<li class="rounded-2xl border border-line bg-canvas/60 p-4">
+				<a href="/rv-park-peoria" class="hover:text-brand">15 minutes from downtown Peoria</a>
+			</li>
 		</ul>
 	</div>
 </section>

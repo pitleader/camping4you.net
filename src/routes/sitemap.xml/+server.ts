@@ -7,6 +7,7 @@ const pages = [
 	{ path: '/', priority: '1.0' },
 	{ path: '/rates', priority: '0.9' },
 	{ path: '/winter-camping', priority: '0.9' },
+	{ path: '/rv-park-peoria', priority: '0.9' },
 	{ path: '/rules', priority: '0.7' },
 	{ path: '/contact', priority: '0.8' },
 	{ path: '/privacy', priority: '0.3' },

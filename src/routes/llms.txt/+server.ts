@@ -26,6 +26,7 @@ ${site.name} is an RV park and campground in ${site.address.city}, ${site.addres
 - [Home](${u('/')}): overview of the park.
 - [Rates](${u('/rates')}): stay types and hookups (call for current pricing).
 - [Winter Camping](${u('/winter-camping')}): year-round operation, winter sites, and cold-weather FAQ.
+- [RV Park Near Peoria](${u('/rv-park-peoria')}): location, drive times to Peoria, Pekin, and area hospitals.
 - [Rules](${u('/rules')}): campground rules and quiet hours.
 - [Contact](${u('/contact')}): phone, email, address, and hours.
 - [Privacy Policy](${u('/privacy')})
