@@ -1,7 +1,29 @@
 # Project State
 
-**Last updated:** 2026-09-17 (pm)
-**Active focus:** **SEO / winter push (2026-09-17).** Late-session (2026-09-17 pm):
+**Last updated:** 2026-09-22
+**Active focus:** **Local-search push (2026-09-22).** Owner supplied the winter
+fact sheet in-session; `/winter-camping` copy now states the confirmed facts
+(subset of winter-capable sites — count still unknown, underground-spigot water
++ heated hose, sewer all winter, bathhouse/laundry weather permitting, gravel
+roads/limited plowing, metered electric year-round, rate by rig length + stay)
+and three FAQs were added; the monthly-price FAQ is gone. Shipped
+`/rv-park-peoria` — area landing page with OSRM-measured drive times (Peoria
+~15 min / 8 mi, Pekin ~10 / 5, airport ~15, OSF ~17), FAQPage schema, linked
+from home + sitemap + llms.txt. Owner-hand collateral: `docs/review-card.pdf`
+(4-up printable Google-review QR, link verified 302) and
+`docs/directory-listings.md` (exact-NAP fields + 14 prioritised sites + claim
+tracker). B9 closed — GSC was already verified by the owner; the board line was
+stale and read as current (my miss; premise not checked at source). GSC 3-month
+export read (moved out of repo root to scratch, not committed): 15 clicks / 502
+impressions; brand query "leisure oaks park" avg position ~11 with 137
+impressions — the headline gap, a prominence/NAP-consistency problem, not a
+copy problem; every Peoria query sits at 1 impression, positions 6–27; daily
+impressions 5 → 21/16/29 on 09-17→19 after the winter push; neither new page
+appears in the Pages export (not yet indexed → L6). Queued: L5 (directories +
+reviews + GBP website field), L6 (request indexing). Still owner-gated: winter
+site count, rates (B1), photos (B11).
+
+**Prior (2026-09-17 pm):** **SEO / winter push (2026-09-17).** Late-session (2026-09-17 pm):
 GBP winter post was rejected for a phone number in the body (posts policy forbids
 it; Call-now button is the sanctioned channel) — copy fixed in
 `docs/google-business-profile.md`, owner deleted the post and reposted, no

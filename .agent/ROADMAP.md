@@ -19,11 +19,17 @@ scope until a new dated decision.
 - [ ] **L2** Winter facts → operator-editable — move the winter copy on `/winter-camping` into a `winter` block in `content.json` + Zod schema + /admin editor, so the owner can state which sites are winter-ready, water-in-freeze, plowing, electric billing, winter rate. Content-store shape change → Critical check-in before build. — source: REPORTS/2026-09-17-seo-winter-triage.md F2
       revisit-when: owner supplies the winter fact sheet
       held: decision
+      note: 2026-09-22 — owner supplied the facts and they are in the page copy (commit 25fcb6a); site-count still unknown. L2 remains the editability move, still Critical-gated.
 - [ ] **L3** More ranking pages — general FAQ (`FAQPage` builder exists), amenities page, "near Peoria / Pekin / I-474" area page; each doubles as an ad landing page. — source: REPORTS/2026-09-17-seo-winter-triage.md F8
-      revisit-when: winter page indexed and GSC shows query data
+      revisit-when: general-FAQ + amenities pages earn their own decision (area page shipped)
       held: design
+      note: 2026-09-22 — area page shipped as `/rv-park-peoria` (drive times from OSRM, FAQPage schema, linked from home/sitemap/llms.txt). General FAQ + amenities pages remain.
 - [x] **L4** GBP copy pasted — owner pastes `docs/google-business-profile.md` (categories, description, winter post, Q&A, photos) into the Business Profile dashboard. — source: REPORTS/2026-09-17-seo-winter-triage.md F1
       done: 2026-09-17 — categories, description, hours, cover, winter post (pending Google review) applied. Residual: Q&A seeding on the public Maps listing; real photos (B11).
+- [ ] **L5** Off-site local SEO — owner-hand: claim/correct the 14 directory listings in `docs/directory-listings.md` (exact NAP), verify the GBP website field is `https://camping4you.net`, and run the review ask (printable QR card at `docs/review-card.pdf`). Rationale: GSC 3-month export shows the brand query "leisure oaks park" at avg position ~11 (137 impressions) — a prominence/consistency gap, not a site-copy gap. — source: session 2026-09-22 (GSC Performance export)
+      revisit-when: top-5 directories claimed, or brand query reaches page 1
+- [ ] **L6** Request indexing — owner-hand: GSC URL inspection → Request indexing for `/winter-camping` and `/rv-park-peoria`; neither appears in the 3-month Pages export. — source: session 2026-09-22 (GSC Pages export)
+      revisit-when: both URLs appear in the GSC Pages report
 
 ## Backlog
 

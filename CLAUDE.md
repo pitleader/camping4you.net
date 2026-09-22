@@ -1,4 +1,4 @@
-<!-- GENERATED-BY: publish.sh on 2026-09-18T16:40:23Z [build: pointer; include: no] -->
+<!-- GENERATED-BY: publish.sh on 2026-09-22T19:33:15Z [build: pointer; include: no] -->
 <!-- Sources: /Users/stephen/.dotagent/publish/../personal (personal) + /Users/stephen/.dotagent/publish (manual) -->
 <!-- Do not hand-edit. Edit those files and re-run publish.sh. -->
 
