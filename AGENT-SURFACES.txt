@@ -1,0 +1,4 @@
+# AGENT-SURFACES.txt — this project's half of the surface register (D-0068);
+# read as the dotagent install's register ∪ this file. Column-0 names only.
+# DIRECTION.md is not declared — it does not exist yet.
+LENS.md          # class: current  accounts-for: */  load: always — what camping4you.net is right now; the session-read core

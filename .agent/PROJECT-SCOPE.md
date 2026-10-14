@@ -1,14 +1,8 @@
 # Project Scope: camping4you.net (Leisure Oaks Park)
 
-## Overview
-
-A marketing + SMS-compliance + self-service website for **Leisure Oaks Park**,
-an RV/campground at 5805 S Lafayette Ave, Bartonville, IL. Three co-equal
-purposes: a fast, SEO-strong brochure site; the public compliance host +
-transactional backend for the park's Telnyx A2P 10DLC service-SMS program; and
-an auth-gated control panel the operator uses to update content. It is a full
-rebuild of the current Hugo site onto the peoriait.com SvelteKit archetype,
-adopted into the dotagent system.
+<!-- BOUNDARIES ONLY (D-0144). The session-read core is `.agent/LENS.md` (what
+     camping4you.net IS, right now — L95, 2026-09-18). Session start reads
+     LENS → this file. The former `## Overview` lives in LENS §1. -->
 
 ## Pairings (optional)
 

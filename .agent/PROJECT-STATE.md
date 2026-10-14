@@ -71,6 +71,7 @@ may rotate the pasted Entra secret + GitHub PAT anytime (I'll re-set).
 
 | You want to know... | Look in |
 |---|---|
+| **What the project is right now (session-read core)** | `.agent/LENS.md` (`class: current`, declared in root `AGENT-SURFACES.txt`) |
 | **Scope, principles, hard constraints, criticality rubric** | `.agent/PROJECT-SCOPE.md` |
 | **Current state, in-flight work, next session plan** | `.agent/PROJECT-STATE.md` (this file) |
 | **Locked vision brief** | `.agent/REPORTS/project-brief.md` |

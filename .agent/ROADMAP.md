@@ -30,6 +30,8 @@ scope until a new dated decision.
       revisit-when: top-5 directories claimed, or brand query reaches page 1
 - [ ] **L6** Request indexing — owner-hand: GSC URL inspection → Request indexing for `/winter-camping` and `/rv-park-peoria`; neither appears in the 3-month Pages export. — source: session 2026-09-22 (GSC Pages export)
       revisit-when: both URLs appear in the GSC Pages report
+- [x] **L7** Apply the L95 lens handoff — create `.agent/LENS.md` (session-read core, `class: current`, declared in root `AGENT-SURFACES.txt`), move SCOPE's `## Overview` into LENS §1, add the boundaries-only pointer to SCOPE. — source: REPORTS/ARCHIVED/2026-09-19-L95-lens-handoff.md
+      done: 2026-10-14 — LENS.md + AGENT-SURFACES.txt added; SCOPE Overview stripped; CLAUDE.md is a pointer build, no re-publish needed.
 
 ## Backlog
 

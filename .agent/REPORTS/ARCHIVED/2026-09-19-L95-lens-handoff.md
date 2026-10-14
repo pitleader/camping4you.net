@@ -1,6 +1,7 @@
 ---
 captured: 2026-09-19
-status: open
+status: spent
+spent-by: ROADMAP L7 — the commit that adds .agent/LENS.md (`git log -- .agent/LENS.md`)
 from: dotagent L230 (report-file drop, D-0080 — nothing else in this repo was touched)
 ---
 
@@ -84,3 +85,21 @@ say so; do not apply this handoff against a manual that still says otherwise.
 ## Disposition (2026-09-18, dotagent seat)
 
 - queued: **L230** — apply to each adopting repo from its own seat (D-0080); the handoff text above is the prompt. Release gate met: `~/.dotagent` at `35aa6dd` carries `LENS.template.md` and the migrated manual.
+
+## Disposition (2026-10-14, camping4you.net seat)
+
+- **fixed-now (applied)** — ROADMAP L7. Why it was archived unapplied: the
+  2026-09-22 button-up's `rotate-reports.sh` moved it to `ARCHIVED/` because it
+  already had the dotagent seat's `## Disposition` block ("queued: L230"). That
+  block was dotagent's, not this seat's, and the frontmatter still said
+  `status: open`. It was not a dismissal.
+- Premise verified in `~/.dotagent` at 50c21cf: the slim manual's steps 1–3
+  name DIRECTION → LENS → SCOPE. `LENS.template.md` exists.
+  `scope-inventory-drift.sh` reads SCOPE ∪ LENS. `governance-load.sh`
+  `boot_surface` derives its rows from the register's `load: always` lines, and
+  LENS is one of them.
+- Applied: `.agent/LENS.md` (restated 2026-10-14). Root `AGENT-SURFACES.txt`
+  declares LENS only, because DIRECTION.md does not exist. The SCOPE
+  `## Overview` moved into LENS §1, and SCOPE got the boundaries-only pointer.
+  Step 4: `CLAUDE.md` is a `pointer` build, so nothing was re-published.
+
